@@ -4,6 +4,7 @@ import "./assets/global.css"
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Root from './pages/root'
 import ErrorPage from './error-page'
+import { SetlistProvider } from './contexts/setlistContext'
 
 const router = createHashRouter([
   {
@@ -15,6 +16,8 @@ const router = createHashRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <SetlistProvider>
+      <RouterProvider router={router}/>
+    </SetlistProvider>
   </StrictMode>,
 )
