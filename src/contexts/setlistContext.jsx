@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { createContext } from "react";
 import { getDemoSetlist, getUserUploadSetlist } from "../data/ParseSetlist.mjs";
+/** @import { SetlistData } from "../data/TypeDefinitions.mjs" */
 
 const SetlistContext = createContext();
 
 function SetlistProvider({ children }) {
 
+    /** @type {ReturnType<typeof useState<SetlistData>>} */
     const [ setlistData, setSetlistData ] = useState({setlist:[]});
 
     /** Parses and loads the Demo Setlist */

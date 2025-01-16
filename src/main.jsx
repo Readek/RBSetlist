@@ -5,6 +5,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Root from './pages/root'
 import ErrorPage from './error-page'
 import { SetlistProvider } from './contexts/setlistContext'
+import "./i18n";
 
 const router = createHashRouter([
   {
