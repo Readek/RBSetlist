@@ -15,7 +15,7 @@
  *  proguitar_diff: Number,
  *  prokeys_diff: Number,
  *  rating: "FF" | "SR" | "M" | "NR",
- *  reactId: String,
+ *  reactId: String
  *  shortname: String,
  *  songid: Number,
  *  source: String,

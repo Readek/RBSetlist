@@ -2,7 +2,7 @@ export default function SongInList({songData}) {
 
     return(<>
 
-    <div key={songData.reactId}>
+    <div>
         {songData.artist} | {songData.name} | {songData.duration}
     </div>
 

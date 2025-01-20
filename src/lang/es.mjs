@@ -5,6 +5,12 @@ export const esLang = {
 
     homeUploadSetlistBtn: 'Subir Lista',
     homeViewDemoBtn: 'Ver Demo',
-    homeSongCount: "{{songCount}} canciones"
+
+    setlistTopTitle: "Canciones de {{user}}",
+    setlistTopTitleUpload: "Tu lista de canciones",
+    setlistSongCount: "Mostrando {{songCount}} canciones",
+    setlistSortedBy: "Ordenadas por {{sortType}}",
+
+    setlistSortArtist : "artista",
 
 }

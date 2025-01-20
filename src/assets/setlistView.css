@@ -1,0 +1,35 @@
+#setlistContent {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/** Top Bar */
+
+#setlistTopBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: white solid 1px;
+}
+
+#setlistTopTitle {
+    font-size: x-large;
+}
+
+#setlistTopRight {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+
+/** Song List */
+
+#setlistList {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}

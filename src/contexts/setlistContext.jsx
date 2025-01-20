@@ -8,11 +8,14 @@ const SetlistContext = createContext();
 function SetlistProvider({ children }) {
 
     /** @type {ReturnType<typeof useState<SetlistData>>} */
-    const [ setlistData, setSetlistData ] = useState({setlist:[]});
+    const [ setlistData, setSetlistData ] = useState([]);
+
+    const [ setlistInfo, setSetlistInfo ] = useState({});
 
     /** Parses and loads the Demo Setlist */
     async function loadDemoSetlist() {
         setSetlistData(await getDemoSetlist());
+        addToSetlistInfo("name", "Demo")
     }
 
     /**
@@ -23,11 +26,23 @@ function SetlistProvider({ children }) {
         setSetlistData(await getUserUploadSetlist(data));
     }
 
+    /**
+     * Updates the main setlist info object
+     * @param {String} keyName 
+     * @param {*} value 
+     */
+    function addToSetlistInfo(keyName, value) {
+        const newArr = {...setlistInfo};
+        newArr[keyName] = value
+        setSetlistInfo(newArr);
+    }
+
     return (
         <SetlistContext.Provider value={{
             setlistData: setlistData,
             loadDemoSetlist: loadDemoSetlist,
             loadUserUploadSetlist: loadUserUploadSetlist,
+            setlistInfo: setlistInfo,
         }}>
             {children}
         </SetlistContext.Provider>
