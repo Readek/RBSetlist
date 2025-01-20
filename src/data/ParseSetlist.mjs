@@ -56,6 +56,9 @@ function parseSetlist(data) {
         data.setlist[i].prokeys_diff = Number(data.setlist[i].prokeys_diff);
         data.setlist[i].vocal_diff = Number(data.setlist[i].vocal_diff);
 
+        // react needs a unique identifier
+        data.setlist[i].reactId = i;
+
     }
 
     return data;
