@@ -15,21 +15,43 @@
 }
 
 #setlistTopTitle {
-    font-size: x-large;
+    font-family: "RobotoCondensed-SemiBold";
+    font-size: 32px;
 }
 
 #setlistTopRight {
     display: flex;
     flex-direction: column;
     align-items: end;
+    font-size: 18px;
 }
 
 
 /** Song List */
 
 #setlistList {
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    font-size: 19px;
+    font-family: "RobotoCondensed-SemiBold";
+
+    .setlistListSong {
+        border-bottom: 1px solid var(--textSecondary);
+    }
+}
+
+.setlistListCategoryHeader {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: var(--interactColor);
+}
+.setlistListCategoryHeader:hover {
+    filter: brightness(1.2);
+}
+
+.setlistListCategorySecon {
+    font-family: "RobotoCondensed-Regular";
+    font-style: oblique 10deg;
+    color: var(--textSecondary);
 }

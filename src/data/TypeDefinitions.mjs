@@ -25,3 +25,18 @@
  *  year_released: Number
  * }} SetlistData
  */
+
+/**
+ * @typedef {{
+ *  name: String,
+ *  sortType: String,
+ * }} SetlistInfo
+ */
+
+/**
+ * @typedef {{
+ *  name: String,
+ *  songCount: Number,
+ *  songs: SetlistData[],
+ * }} SetlistActive
+ */

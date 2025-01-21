@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
 import { getDemoSetlist, getUserUploadSetlist } from "../data/ParseSetlist.mjs";
-/** @import { SetlistData } from "../data/TypeDefinitions.mjs" */
+import { sortSetlist } from "../data/SortSetlist.mjs";
+/** @import { SetlistData, SetlistInfo } from "../data/TypeDefinitions.mjs" */
 
 const SetlistContext = createContext();
 
@@ -10,12 +11,16 @@ function SetlistProvider({ children }) {
     /** @type {ReturnType<typeof useState<SetlistData>>} */
     const [ setlistData, setSetlistData ] = useState([]);
 
+    /** @type {ReturnType<typeof useState<SetlistInfo>>} */
     const [ setlistInfo, setSetlistInfo ] = useState({});
+
+    /** @type {ReturnType<typeof useState<SetlistData>>} */
+    const [ setlistActive, setSetlistActive ] = useState([]);
 
     /** Parses and loads the Demo Setlist */
     async function loadDemoSetlist() {
         setSetlistData(await getDemoSetlist());
-        addToSetlistInfo("name", "Demo")
+        addToSetlistInfo("name", "Demo");
     }
 
     /**
@@ -24,6 +29,7 @@ function SetlistProvider({ children }) {
      */
     async function loadUserUploadSetlist(data) {
         setSetlistData(await getUserUploadSetlist(data));
+        addToSetlistInfo("name", null);
     }
 
     /**
@@ -37,12 +43,22 @@ function SetlistProvider({ children }) {
         setSetlistInfo(newArr);
     }
 
+    // to reorder active setlist array
+    useEffect(() => {
+
+        if (setlistInfo.sortType) {
+            setSetlistActive(sortSetlist(setlistData, setlistInfo.sortType));
+        }
+
+    }, [setlistInfo])
+
     return (
         <SetlistContext.Provider value={{
             setlistData: setlistData,
             loadDemoSetlist: loadDemoSetlist,
             loadUserUploadSetlist: loadUserUploadSetlist,
-            setlistInfo: setlistInfo,
+            setlistInfo: setlistInfo, addToSetlistInfo: addToSetlistInfo,
+            setlistActive: setlistActive,
         }}>
             {children}
         </SetlistContext.Provider>

@@ -1,0 +1,24 @@
+.setlistListSong {
+    padding: 6px 25px;
+    background-color: var(--fadederColor);
+    transition: background-color .2s;
+}
+.setlistListSong:hover {
+    background-color: var(--fadedColor);
+
+    .setlistListTexts {
+        translate: 7px 0px;
+    }
+}
+
+.setlistListTexts {
+    transition: translate .15s;
+    display: flex;
+    gap: 10px;
+}
+
+.setlistListSongSecon {
+    font-family: "RobotoCondensed-Regular";
+    font-style: oblique 10deg;
+    color: var(--textSecondary);
+}
