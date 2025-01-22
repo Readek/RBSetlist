@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { createContext } from "react";
 import { getDemoSetlist, getUserUploadSetlist } from "../data/ParseSetlist.mjs";
 import { sortSetlist } from "../data/SortSetlist.mjs";
+import { useTranslation } from "react-i18next";
 /** @import { SetlistData, SetlistInfo } from "../data/TypeDefinitions.mjs" */
 
 const SetlistContext = createContext();
 
 function SetlistProvider({ children }) {
+
+    const { t } = useTranslation();
 
     /** @type {ReturnType<typeof useState<SetlistData>>} */
     const [ setlistData, setSetlistData ] = useState([]);
@@ -20,7 +23,7 @@ function SetlistProvider({ children }) {
     /** Parses and loads the Demo Setlist */
     async function loadDemoSetlist() {
         setSetlistData(await getDemoSetlist());
-        addToSetlistInfo("name", "Demo");
+        addToSetlistInfo("name", t("setlistTopTitleDemo"));
     }
 
     /**
@@ -29,7 +32,7 @@ function SetlistProvider({ children }) {
      */
     async function loadUserUploadSetlist(data) {
         setSetlistData(await getUserUploadSetlist(data));
-        addToSetlistInfo("name", null);
+        addToSetlistInfo("name", t("setlistTopTitleUpload"));
     }
 
     /**

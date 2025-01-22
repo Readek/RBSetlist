@@ -11,12 +11,12 @@ export default function SongInList({songData, sortType}) {
     {sortType == "Artist"
     ?
     <div className="setlistListTexts">
-        <div className="setlistListSongMain">
+        <span className="setlistListSongMain">
             {songData.name}
-        </div>
-        <div className="setlistListSongSecon">
+        </span>
+        <span className="setlistListSongSecon">
             {songData.duration}
-        </div>
+        </span>
     </div>
     :
     <div className="setlistListTexts">

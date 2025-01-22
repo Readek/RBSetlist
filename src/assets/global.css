@@ -1,14 +1,14 @@
 @font-face {
   font-family: "RobotoCondensed-Regular";
-  src: url('Fonts/RobotoCondensed-Regular.ttf');
+  src: url('./Fonts/RobotoCondensed-Regular.ttf');
 }
 @font-face {
   font-family: "RobotoCondensed-Medium";
-  src: url('Fonts/RobotoCondensed-Medium.ttf');
+  src: url('./Fonts/RobotoCondensed-Medium.ttf');
 }
 @font-face {
   font-family: "RobotoCondensed-SemiBold";
-  src: url('Fonts/RobotoCondensed-SemiBold.ttf');
+  src: url('./Fonts/RobotoCondensed-SemiBold.ttf');
 }
 
 :root {

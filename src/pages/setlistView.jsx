@@ -11,7 +11,7 @@ export default function SetlistView() {
     const { t } = useTranslation();
 
     /** @type {{setlistActive: SetlistActive, setlistInfo: SetlistInfo}} */
-    const { setlistActive, setlistInfo, addToSetlistInfo } = useContext(SetlistContext);
+    const { setlistData, setlistActive, setlistInfo, addToSetlistInfo } = useContext(SetlistContext);
 
     useEffect(() => {
         addToSetlistInfo("sortType", "Artist");
@@ -20,25 +20,19 @@ export default function SetlistView() {
     return(<>
 
     {/* if we got here without a valid setlist, go back */}
-    {setlistActive.length == 0 && (<Navigate to={"/"} />)}
+    {setlistData.length == 0 && (<Navigate to={"/"} />)}
 
     <div id="setlistContent">
 
         <div id="setlistTopBar">
 
             <div id="setlistTopTitle">
-                {setlistInfo.name
-                ?
-                    t("setlistTopTitle", {user: setlistInfo.name})
-                :
-                    t("setlistTopTitleUpload")
-                }
-
+                {setlistInfo.name}
             </div>
 
             <div id="setlistTopRight">
                 <div>
-                    {t("setlistSongCount", {songCount: setlistActive.reduce(
+                    {t("setlistSongCount", {count: setlistActive.reduce(
                         (acu, val) => acu + val.songs.length, 0
                     )})}
                 </div>
@@ -55,17 +49,24 @@ export default function SetlistView() {
                 <div className="setlistListCategory" key={category.name}>
 
                     <div className="setlistListCategoryHeader">
-                        <div className="setlistListCategoryName">
+
+                        <span className="setlistListCategoryName">
                             {category.name}
-                        </div>
-                        <div className="setlistListCategorySecon">
-                            {category.songs.length} songs
-                        </div>
+                        </span>
+
+                        <span className="setlistListCategorySecon">
+                            {t("setlistListCatCount", {count: category.songs.length})}
+                        </span>
+
                     </div>
 
                     <div className="setlistListCategorySongs">
                         {category.songs.map(song => (
-                            <SongInList songData={song} key={song.reactId} />
+                            <SongInList
+                                songData={song}
+                                sortType={setlistInfo.sortType}
+                                key={song.reactId}
+                            />
                         ))}
                     </div>
 

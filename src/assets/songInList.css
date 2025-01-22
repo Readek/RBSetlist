@@ -13,7 +13,6 @@
 
 .setlistListTexts {
     transition: translate .15s;
-    display: flex;
     gap: 10px;
 }
 
@@ -21,4 +20,5 @@
     font-family: "RobotoCondensed-Regular";
     font-style: oblique 10deg;
     color: var(--textSecondary);
+    margin-left: 10px;
 }
