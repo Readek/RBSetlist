@@ -8,26 +8,31 @@ export default function SongInList({songData, sortType}) {
 
     <div className="setlistListSong">
 
-    {sortType == "Artist"
-    ?
+    <img
+        className="setlistListSongIcon"
+        src={"SourceIcons/"+songData.source+".png"}
+        alt={songData.source}
+        title={songData.source}
+    />
+
     <div className="setlistListTexts">
+
         <span className="setlistListSongMain">
             {songData.name}
         </span>
-        <span className="setlistListSongSecon">
-            {songData.duration}
-        </span>
+
+        {sortType == "Artist"
+        ?
+            <span className="setlistListSongSecon">
+                {songData.duration}
+            </span>
+        :
+            <div className="setlistListSongSecon">
+                {songData.artist}
+            </div>
+        }
+
     </div>
-    :
-    <div className="setlistListTexts">
-        <div className="setlistListSongMain">
-            {songData.name}
-        </div>
-        <div className="setlistListSongSecon">
-            {songData.artist}
-        </div>
-    </div>
-    }
     
     </div>
 

@@ -1,4 +1,5 @@
 .setlistListSong {
+    display: flex;
     padding: 6px 25px;
     background-color: var(--fadederColor);
     transition: background-color .2s;
@@ -6,7 +7,7 @@
 .setlistListSong:hover {
     background-color: var(--fadedColor);
 
-    .setlistListTexts {
+    .setlistListTexts, .setlistListSongIcon {
         translate: 7px 0px;
     }
 }
@@ -14,6 +15,13 @@
 .setlistListTexts {
     transition: translate .15s;
     gap: 10px;
+}
+
+.setlistListSongIcon {
+    transition: translate .15s;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 }
 
 .setlistListSongSecon {
