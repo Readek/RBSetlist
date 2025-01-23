@@ -23,20 +23,19 @@
  *  vocal_diff: Number,
  *  vocal_parts: Number,
  *  year_released: Number
- * }} SetlistData
+ * }} SetlistData - Base data that won't ever change while in setlist view
  */
 
 /**
  * @typedef {{
  *  name: String,
  *  sortType: String,
- * }} SetlistInfo
+ * }} SetlistInfo - Information about current setlist not including the setlist itself
  */
 
 /**
  * @typedef {{
  *  name: String,
- *  songCount: Number,
  *  songs: SetlistData[],
- * }} SetlistActive
+ * }} SetlistActive - Setlist data that will change depending of sorts and filters
  */

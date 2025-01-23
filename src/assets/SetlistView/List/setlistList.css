@@ -1,35 +1,3 @@
-#setlistContent {
-    display: flex;
-    flex-direction: column;
-}
-
-
-/** Top Bar */
-
-#setlistTopBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: white solid 1px;
-}
-
-#setlistTopTitle {
-    font-family: "RobotoCondensed-SemiBold";
-    font-size: 32px;
-}
-
-#setlistTopRight {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    font-size: 18px;
-    text-align: right;
-}
-
-
-/** Song List */
-
 #setlistList {
     display: flex;
     flex-direction: column;

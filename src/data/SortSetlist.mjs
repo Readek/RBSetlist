@@ -49,14 +49,6 @@ function sortByArtist(setlist) {
 
     }
 
-    // store song count for convenience
-    let songCount = 0;
-
-    for (let i = 0; i < finalSet.length; i++) {
-        const element = finalSet[i];
-        
-    }
-
     return finalSet;
 
 }

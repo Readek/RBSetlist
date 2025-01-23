@@ -1,5 +1,6 @@
 .setlistListSong {
     display: flex;
+    align-items: center;
     padding: 6px 25px;
     background-color: var(--fadederColor);
     transition: background-color .2s;
