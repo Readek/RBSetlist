@@ -10,7 +10,11 @@ export default function SongInList({songData, sortType}) {
 
     <img
         className="setlistListSongIcon"
-        src={"SourceIcons/"+songData.source+".png"}
+        src={"SourceIcons/"+songData.source.replace("_", "")+".png"}
+        onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src="SourceIcons/generic.png";
+        }}
         alt={songData.source}
         title={songData.source}
     />
