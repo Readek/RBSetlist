@@ -1,9 +1,13 @@
 #setlistTopBar {
+    padding: 20px;
+    border-bottom: white solid 1px;
+    width: 100%;
+}
+
+#setlistTopTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-bottom: white solid 1px;
 }
 
 #setlistTopTitle {

@@ -11,6 +11,8 @@ export const enLang = {
 
     /* Setlist View */
 
+    /* Top bar */
+
     setlistTopTitleDemo: "Demo setlist",
     setlistTopTitleUpload: "Your uploaded setlist",
 
@@ -18,7 +20,8 @@ export const enLang = {
     setlistSongCount_other: "Viewing {{count}} songs",
     setlistSortedBy: "Sorted by {{sortType}}",
 
-    setlistSortArtist : "artist",
+    setlistSortSongName : "Song name",
+    setlistSortArtist : "Artist",
 
     setlistListCatCount_one: "{{count}} song",
     setlistListCatCount_other: "{{count}} songs",
