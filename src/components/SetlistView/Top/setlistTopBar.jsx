@@ -11,7 +11,7 @@ export default function SetlistTopBar() {
     /** @type {{setlistData: SetlistData[], setlistInfo: SetlistInfo}} */
     const { setlistData, setlistInfo, addToSetlistInfo } = useContext(SetlistContext);
 
-    const [selectedSort, setSelectedSort] = useState("Artist");
+    const [selectedSort, setSelectedSort] = useState("SongName");
     
     useEffect(() => {
         addToSetlistInfo("sortType", selectedSort);

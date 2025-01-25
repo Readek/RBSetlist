@@ -1,17 +1,15 @@
 import { useContext } from "react";
 import { SetlistContext } from "../../../contexts/setlistContext";
-import { useTranslation } from "react-i18next";
 import SongInList from "./songInList";
+import SetlistCategoryTitle from "./setlistCategoryTitle";
 import "../../../assets/SetlistView/List/setlistList.css"
 /** @import { SetlistActive, SetlistInfo } from "../data/TypeDefinitions.mjs" */
 
 export default function SetlistList() {
 
-    const { t } = useTranslation();
-
     /** @type {{setlistActive: SetlistActive[], setlistInfo: SetlistInfo}} */
     const { setlistActive, setlistInfo } = useContext(SetlistContext);
-    
+
     return(
 
     <div id="setlistList">
@@ -20,17 +18,10 @@ export default function SetlistList() {
 
             <div className="setlistListCategory" key={category.name}>
 
-                <div className="setlistListCategoryHeader">
-
-                    <span className="setlistListCategoryName">
-                        {category.name}
-                    </span>
-
-                    <span className="setlistListCategorySecon">
-                        {t("setlistListCatCount", {count: category.songs.length})}
-                    </span>
-
-                </div>
+                <SetlistCategoryTitle
+                    name={category.name}
+                    count={category.songs.length}
+                />
 
                 <div className="setlistListCategorySongs">
                     {category.songs.map(song => (

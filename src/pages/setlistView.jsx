@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { lazy, Suspense, useContext } from "react";
 import { SetlistContext } from "../contexts/setlistContext";
 import { Navigate } from "react-router-dom";
 import SetlistTopBar from "../components/SetlistView/Top/setlistTopBar";
-import SetlistList from "../components/SetlistView/List/setlistList"
+import LoadingList from "../components/SetlistView/List/loadingList";
 import "../assets/SetlistView/setlistView.css"
 /** @import { SetlistData } from "../data/TypeDefinitions.mjs" */
 
@@ -10,6 +10,8 @@ export default function SetlistView() {
 
     /** @type {{setlistData: SetlistData[]}} */
     const { setlistData } = useContext(SetlistContext);
+
+    const SetlistList = lazy(() => import('../components/SetlistView/List/setlistList'));
 
     return(<>
 
@@ -20,7 +22,9 @@ export default function SetlistView() {
 
         <SetlistTopBar />
 
-        <SetlistList />
+        {<Suspense fallback={<LoadingList/>}>
+            <SetlistList/>
+        </Suspense>}
 
     </div>
 
