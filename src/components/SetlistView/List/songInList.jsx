@@ -33,9 +33,7 @@ export default function SongInList({songData, sortType}) {
 
         {sortType == "Artist"
         ?
-            <span className="setlistListSongSecon">
-                {songData.duration}
-            </span>
+            null
         :
             <div className="setlistListSongSecon">
                 {songData.artist}

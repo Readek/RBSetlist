@@ -9,7 +9,7 @@ export default function SetlistList() {
 
     const { t } = useTranslation();
 
-    /** @type {{setlistActive: SetlistActive, setlistInfo: SetlistInfo}} */
+    /** @type {{setlistActive: SetlistActive[], setlistInfo: SetlistInfo}} */
     const { setlistActive, setlistInfo } = useContext(SetlistContext);
     
     return(

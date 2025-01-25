@@ -3,6 +3,7 @@
     flex-direction: column;
     font-size: 19px;
     font-family: "RobotoCondensed-SemiBold";
+    overflow-y: auto;
 
     .setlistListSong:not(:first-child) {
         border-top: 1px solid var(--fadedColor);

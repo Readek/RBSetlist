@@ -50,7 +50,7 @@ function SetlistProvider({ children }) {
     useEffect(() => {
 
         if (setlistInfo.sortType) {
-            setSetlistActive(sortSetlist(setlistData, setlistInfo.sortType));
+            setSetlistActive(sortSetlist([...setlistData], setlistInfo.sortType));
         }
 
     }, [setlistInfo])
