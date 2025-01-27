@@ -7,6 +7,9 @@ import ErrorPage from './error-page'
 import { SetlistProvider } from './contexts/setlistContext'
 import "./i18n";
 import SetlistView from './pages/setlistView'
+import Login from './pages/login'
+import { AuthProvider } from './contexts/authContext'
+import User from './pages/user'
 
 const router = createHashRouter([
   {
@@ -18,12 +21,22 @@ const router = createHashRouter([
     path: "/setlist",
     element: <SetlistView />,
   },
+  {
+    path: "/Config/Login",
+    element: <Login />,
+  },
+  {
+    path: "/Config/User",
+    element: <User />,
+  },
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SetlistProvider>
-      <RouterProvider router={router}/>
-    </SetlistProvider>
+    <AuthProvider>
+      <SetlistProvider>
+        <RouterProvider router={router}/>
+      </SetlistProvider>
+    </AuthProvider>
   </StrictMode>,
 )

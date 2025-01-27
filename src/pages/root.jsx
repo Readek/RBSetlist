@@ -2,7 +2,7 @@ import { useContext, useRef } from "react"
 import { SetlistContext } from "../contexts/setlistContext"
 import { useTranslation } from "react-i18next";
 import Settings from "../components/settings";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Root() {
 
@@ -34,6 +34,10 @@ export default function Root() {
     return (<>
 
     <Settings></Settings>
+
+    <Link to={"/Config/Login"}>
+        <button>Login</button>
+    </Link>
 
     <h1>RB Setlist</h1>
 
