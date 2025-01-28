@@ -4,8 +4,8 @@ import { createClient } from '@supabase/supabase-js'
 const AuthContext = createContext();
 
 const supabase = createClient(
-  'https://gydmbpxohlkdljnaqvyz.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5ZG1icHhvaGxrZGxqbmFxdnl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5NzIyNDQsImV4cCI6MjA1MzU0ODI0NH0.FEHOZot2X2a5vHnYpp8X-QkHbrbrGIdwNdsrChtZ0UQ'
+  'https://'+import.meta.env.VITE_SUPABASE_PROJECT_ID+'.supabase.co',
+  import.meta.env.VITE_SUPABASE_API_KEY
 )
 
 function AuthProvider({ children }) {
