@@ -4,8 +4,11 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/authContext';
 import { Navigate } from 'react-router-dom';
 import "../assets/login.css"
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
+
+    const { t } = useTranslation();
 
     const { session, supabase } = useContext(AuthContext);
 
@@ -19,6 +22,36 @@ export default function Login() {
                     }}
                     providers={[]}
                     theme='dark'
+                    localization={{
+                        variables: {
+                          sign_up: {
+                            email_label: t("loginEmailLabel"),
+                            email_input_placeholder: t("loginEmailPlaceholder"),
+                            password_label: t("loginPasswordLabel"),
+                            password_input_placeholder: t("loginPasswordPlaceholder"),
+                            button_label: t("signUpButtonLabel"),
+                            loading_button_label: t("signUpButtonLoading"),
+                            link_text: t("signUpLink"),
+                            confirmation_text: t("signUpConfirmation"),
+                          },
+                          sign_in: {
+                            email_label: t("loginEmailLabel"),
+                            email_input_placeholder: t("loginEmailPlaceholder"),
+                            password_label: t("loginPasswordLabel"),
+                            password_input_placeholder: t("loginPasswordPlaceholder"),
+                            button_label: t("signInButtonLabel"),
+                            loading_button_label: t("signInButtonLoading"),
+                            link_text: t("signInLink"),
+                          },
+                          forgotten_password: {
+                            email_label: t("loginEmailLabel"),
+                            email_input_placeholder: t("loginEmailPlaceholder"),
+                            button_label: t("forgotButtonLabel"),
+                            loading_button_label: t("signInButtonLoading"),
+                            link_text: t("forgotLink"),
+                          }
+                        },
+                      }}
                 />
             </div>
         )

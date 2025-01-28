@@ -9,6 +9,28 @@ export const esLang = {
     homeViewDemoBtn: 'Ver Demo',
 
 
+    /* Login */
+
+    loginEmailLabel: "Tu correo electrónico",
+    loginEmailPlaceholder: "Correo electrónico",
+    loginPasswordLabel: "Tu contraseña",
+    loginPasswordPlaceholder: "Contraseña",
+
+    signInButtonLabel: "Iniciar sesión",
+    signInButtonLoading: "Iniciando sesión...",
+    signInLink: "¿Ya tienes una cuenta? Inicia sesión",
+    
+    signUpButtonLabel: "Registrarse",
+    signUpButtonLoading: "Registrando...",
+    signUpLink: "¿No tienes cuenta? Regístrate",
+    signUpConfirmation: "Se ha enviado un enlace de confirmación a tu correo. ¡Puede tardar unos minutos en aparecer!",
+    
+    forgotButtonLabel: "Reiniciar contraseña",
+    forgotButtonLoading: "Mandando instrucciones...",
+    forgotLink: "¿Has olvidado tu contraseña?",
+    forgotConfirmation: "Se ha enviado un enlace a tu correo",
+
+
     /* Setlist View */
 
     /* Top bar */
