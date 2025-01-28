@@ -2,8 +2,8 @@ import { useState } from "react";
 import "../../../assets/SetlistView/List/songInList.css";
 /** @import { SetlistData } from "../../../data/TypeDefinitions.mjs" */
 
-/** @param {{songData: SetlistData, sortType: String}} */
-export default function SongInList({songData, sortType}) {
+/** @param {{songData: SetlistData, sortType: String, textFilter: String}} */
+export default function SongInList({songData, sortType, textFilter}) {
 
     const [sourceImg, setSourceImg] = useState(
         // we remove underscores because there can be differences
@@ -11,36 +11,56 @@ export default function SongInList({songData, sortType}) {
         "SourceIcons/"+songData.source.replace("_", "")+".png"
     )
 
+    let subtext;
+    if (textFilter) { // if theres any text filter, show all
+
+        subtext = (<>
+            <div className="setlistListSongSecon">
+                {songData.artist}
+            </div>
+            <div className="setlistListSongSecon">
+                {songData.album}
+            </div>
+        </>)
+
+    } else if (sortType == "Artist") {
+
+        subtext = (
+        <div className="setlistListSongSecon">
+            {songData.album}
+        </div>)
+
+    } else {
+
+        subtext = (<div className="setlistListSongSecon">
+            {songData.artist}
+        </div>)
+
+    }
+
     return(
 
     <div className="setlistListSong">
 
-    <img
-        className="setlistListSongIcon"
-        src={sourceImg}
-        onError={() => {
-            setSourceImg("SourceIcons/generic.png");
-        }}
-        alt={songData.source}
-        title={songData.source}
-    />
+        <img
+            className="setlistListSongIcon"
+            src={sourceImg}
+            onError={() => {
+                setSourceImg("SourceIcons/generic.png");
+            }}
+            alt={songData.source}
+            title={songData.source}
+        />
 
-    <div className="setlistListTexts">
+        <div className="setlistListTexts">
 
-        <span className="setlistListSongMain">
-            {songData.name}
-        </span>
+            <span className="setlistListSongMain">
+                {songData.name}
+            </span>
 
-        {sortType == "Artist"
-        ?
-            null
-        :
-            <div className="setlistListSongSecon">
-                {songData.artist}
-            </div>
-        }
+            {subtext}
 
-    </div>
+        </div>
     
     </div>
 

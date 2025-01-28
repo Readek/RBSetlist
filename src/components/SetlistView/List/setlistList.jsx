@@ -3,7 +3,7 @@ import { SetlistContext } from "../../../contexts/setlistContext";
 import SongInList from "./songInList";
 import SetlistCategoryTitle from "./setlistCategoryTitle";
 import "../../../assets/SetlistView/List/setlistList.css"
-/** @import { SetlistActive, SetlistInfo } from "../data/TypeDefinitions.mjs" */
+/** @import { SetlistActive, SetlistInfo } from "../../../data/TypeDefinitions.mjs*/
 
 export default function SetlistList() {
 
@@ -28,6 +28,7 @@ export default function SetlistList() {
                         <SongInList
                             songData={song}
                             sortType={setlistInfo.sortType}
+                            textFilter={setlistInfo.textFilter}
                             key={song.reactId}
                         />
                     ))}

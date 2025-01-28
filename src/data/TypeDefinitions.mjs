@@ -30,6 +30,7 @@
  * @typedef {{
  *  name: String,
  *  sortType: String,
+ *  textFilter: String
  * }} SetlistInfo - Information about current setlist not including the setlist itself
  */
 

@@ -12,10 +12,15 @@ export default function SetlistTopBar() {
     const { setlistData, setlistInfo, addToSetlistInfo } = useContext(SetlistContext);
 
     const [selectedSort, setSelectedSort] = useState("SongName");
+    const [filterInput, setFilterInput] = useState("");
     
     useEffect(() => {
         addToSetlistInfo("sortType", selectedSort);
     }, [selectedSort])
+
+    useEffect(() => {
+        addToSetlistInfo("textFilter", filterInput);
+    }, [filterInput])
 
     return(
 
@@ -51,6 +56,14 @@ export default function SetlistTopBar() {
             <option value="SongName">{t("setlistSortSongName")}</option>
             <option value="Artist">{t("setlistSortArtist")}</option>
         </select>
+
+        <input
+            type="text"
+            id="setlistTextFilterInput"
+            value={filterInput}
+            onChange={e => setFilterInput(e.target.value)}
+            placeholder={t("setlistTextFilterPlaceholder")}
+        />
 
     </div>
 

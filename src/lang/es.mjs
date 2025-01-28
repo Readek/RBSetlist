@@ -45,7 +45,13 @@ export const esLang = {
     setlistSortSongName : "Nombre",
     setlistSortArtist : "Artista",
 
+    setlistTextFilterPlaceholder: "Buscar...",
+
+    /* List */
+
     setlistListCatCount_one: "{{count}} canción",
     setlistListCatCount_other: "{{count}} canciones",
+
+    setlistListSearchCat: "Resultados de la búsqueda"
 
 }

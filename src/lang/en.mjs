@@ -45,7 +45,13 @@ export const enLang = {
     setlistSortSongName : "Song name",
     setlistSortArtist : "Artist",
 
+    setlistTextFilterPlaceholder: "Search...",
+
+    /* List */
+
     setlistListCatCount_one: "{{count}} song",
     setlistListCatCount_other: "{{count}} songs",
+
+    setlistListSearchCat: "Search results"
 
 }
