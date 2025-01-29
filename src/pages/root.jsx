@@ -3,6 +3,7 @@ import { SetlistContext } from "../contexts/setlistContext"
 import { useTranslation } from "react-i18next";
 import Settings from "../components/settings";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/authContext";
 
 export default function Root() {
 
@@ -10,6 +11,8 @@ export default function Root() {
     const { t } = useTranslation();
 
     const { loadUserUploadSetlist, loadDemoSetlist } = useContext(SetlistContext);
+    const { supabase } = useContext(AuthContext);
+
     const inputFile = useRef();
 
     async function useDemoSetlist() {
@@ -35,9 +38,11 @@ export default function Root() {
 
     <Settings></Settings>
 
-    <Link to={"/Config/Login"}>
-        <button>Login</button>
-    </Link>
+    {supabase && (
+        <Link to={"/Config/Login"}>
+            <button>Login</button>
+        </Link>
+    )}
 
     <h1>RB Setlist</h1>
 
