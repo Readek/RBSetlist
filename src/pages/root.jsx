@@ -10,14 +10,13 @@ export default function Root() {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
-    const { loadUserUploadSetlist, loadDemoSetlist } = useContext(SetlistContext);
+    const { loadUserUploadSetlist } = useContext(SetlistContext);
     const { supabase } = useContext(AuthContext);
 
     const inputFile = useRef();
 
     async function useDemoSetlist() {
-        await loadDemoSetlist();
-        navigate("/setlist");
+        navigate("/Demo");
     }
 
     function userFileClick() {
@@ -29,7 +28,7 @@ export default function Root() {
         if (e.target.files && e.target.files[0]) {
             e.target.files[0].text().then( async (data) => {                
                 await loadUserUploadSetlist(data);
-                navigate("/setlist");
+                navigate("/LocalUpload");
             })
         }
     }

@@ -15,7 +15,7 @@ export default function SetlistTopBar() {
     const [filterInput, setFilterInput] = useState("");
     
     useEffect(() => {
-        addToSetlistInfo("sortType", selectedSort);
+        addToSetlistInfo("sortType", selectedSort);        
     }, [selectedSort])
 
     useEffect(() => {

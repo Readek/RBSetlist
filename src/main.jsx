@@ -6,7 +6,7 @@ import Root from './pages/root'
 import ErrorPage from './error-page'
 import { SetlistProvider } from './contexts/setlistContext'
 import "./i18n";
-import SetlistView from './pages/setlistView'
+import SetlistView, {loader as setlistLoader} from './pages/setlistView'
 import Login from './pages/login'
 import { AuthProvider } from './contexts/authContext'
 import User from './pages/user'
@@ -18,16 +18,17 @@ const router = createHashRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/setlist",
-    element: <SetlistView />,
-  },
-  {
     path: "/Config/Login",
     element: <Login />,
   },
   {
     path: "/Config/User",
     element: <User />,
+  },
+  {
+    path: "/:setlistUrl",
+    element: <SetlistView />,
+    loader: setlistLoader
   },
 ])
 

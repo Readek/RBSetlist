@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import { getDemoSetlist, getUserUploadSetlist } from "../data/ParseSetlist.mjs";
 import { sortSetlist } from "../data/SortSetlist.mjs";
 import { useTranslation } from "react-i18next";
+import { AuthContext } from "./authContext";
 /** @import { SetlistData, SetlistInfo, SetlistActive } from "../data/TypeDefinitions.mjs" */
 
 const SetlistContext = createContext();
 
+const setsUrl = "https://"+import.meta.env.VITE_SUPABASE_PROJECT_ID+".supabase.co/storage/v1/object/public/setlists/";
+
 function SetlistProvider({ children }) {
 
     const { t } = useTranslation();
+
+    const { supabase } = useContext(AuthContext);
 
     /** @type {ReturnType<typeof useState<SetlistData[]>>} */
     const [ setlistData, setSetlistData ] = useState([]);
@@ -35,6 +40,42 @@ function SetlistProvider({ children }) {
         setSetlistData(userSetlist);
         addToSetlistInfo("name", t("setlistTopTitleUpload"));
         return userSetlist;
+    }
+
+    /**
+     * Gets user setlist from database and parses it
+     * @param {String} setlistUrl - Url used to find user setlist
+     */
+    async function loadUserSetlist(setlistUrl) {
+
+        const { data, error } = await supabase
+            .from('setlists')
+            .select()
+            .eq('url', setlistUrl)
+        if (error) {
+            console.log(error);
+        } else {
+
+            // if data for requested url doesnt exist
+            if (!data[0]) {
+                setSetlistData(null);
+                return
+            }
+
+            const userSetlist = await (
+                await fetch(
+                    setsUrl + data[0].dataurl,
+                    {cache: "no-store"}
+                )
+            ).json();
+
+            setSetlistData(userSetlist);
+
+            addToSetlistInfo("name", data[0].name);
+            addToSetlistInfo("desc", data[0].description);
+
+        }
+
     }
 
     /**
@@ -87,6 +128,7 @@ function SetlistProvider({ children }) {
             setlistData: setlistData,
             loadDemoSetlist: loadDemoSetlist,
             loadUserUploadSetlist: loadUserUploadSetlist,
+            loadUserSetlist: loadUserSetlist,
             setlistInfo: setlistInfo, addToSetlistInfo: addToSetlistInfo,
             setlistActive: setlistActive,
         }}>
