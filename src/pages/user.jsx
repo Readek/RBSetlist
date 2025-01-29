@@ -7,7 +7,7 @@ import UploadToDb from "../components/User/uploadToDb";
 export default function User() {
 
     const { t } = useTranslation();
-    
+
     const { session, supabase } = useContext(AuthContext);
 
     const [ uploadList, setUploadList ] = useState([]);
@@ -17,35 +17,42 @@ export default function User() {
     }
 
     useEffect( () => {
-        getItems();
-    }, [])
+        if (session) getItems();
+    }, [session])
 
     async function getItems() {
         const { data, error } = await supabase
             .from('setlists')
             .select()
             .eq('user', session.user.id)
-
         if (error) {
-            
+            console.log(error);
         } else {
             setUploadList(data);
         }
     }
-    
+
     return(<>
 
     {session && <>
 
         <div>hola, {session.user.email}</div>
 
-        <UploadToDb setUploadList={setUploadList}></UploadToDb>
+        <h3>Upload a setlist</h3>
 
-        <button onClick={logOut}>Sign Out</button>
+        <UploadToDb getItems={getItems}></UploadToDb>
+
+        <h3>Your setlists</h3>
 
         {uploadList.map(setlist => (
-            <div key={setlist.name}>{setlist.name}</div>
+            <div key={setlist.name}>
+                <div>{setlist.name}</div>
+                <div>{setlist.description}</div>
+                <div>{setlist.url}</div>
+            </div>
         ))}
+
+        <button onClick={logOut}>Sign Out</button>
 
     </>}
 

@@ -1,16 +1,22 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../contexts/authContext";
 import { SetlistContext } from "../../contexts/setlistContext";
 import { useTranslation } from "react-i18next";
 
-export default function UploadToDb({setUploadList}) {
+export default function UploadToDb({getItems}) {
 
     const { t } = useTranslation();
 
     const inputFile = useRef();
 
     const { session, supabase } = useContext(AuthContext);
-    const { setlistData, loadUserUploadSetlist } = useContext(SetlistContext);
+    const { loadUserUploadSetlist } = useContext(SetlistContext);
+
+    const [ nameInput, setNameInput ] = useState("");
+    const [ descInput, setDescInput ] = useState("");
+    const [ urlInput, setUrlInput ] = useState("");
+
+    const [ errorMsg, setErrorMsg ] = useState();
 
     function userFileClick() {
         inputFile.current.click();
@@ -27,16 +33,16 @@ export default function UploadToDb({setUploadList}) {
 
     async function storeData(file) {
 
-        await loadUserUploadSetlist(file);
+        const setlist = await loadUserUploadSetlist(file);
 
-        const dataJson = JSON.stringify(setlistData, null, 2);
+        const dataJson = JSON.stringify(setlist, null, 2);
 
         const { data, error } = await supabase.storage
             .from('setlists')
-            .upload(session.user.id + '/testo.json', dataJson)
+            .upload(`${session.user.id}/${urlInput}.json`, dataJson)
 
         if (error) {
-            console.log(error);
+            setErrorMsg(error);
         } else {
             addNewRow(data);
         }
@@ -47,36 +53,63 @@ export default function UploadToDb({setUploadList}) {
         const { data, error } = await supabase
             .from('setlists')
             .insert({
-                url: "testo",
-                name: 'My Awesome Setlist',
-                description: "idk man",
+                url: urlInput,
+                name: nameInput,
+                description: descInput,
                 dataurl: uploadData.path,
                 user: session.user.id
             })
-            .select()
-            .eq('user', session.user.id)
 
         if (error) {
-            console.log(error);
+            setErrorMsg(error);
         } else {
-            setUploadList(data);
+            getItems();
         }
     }
+
+    return(
+
+    <div>
+
+        <input
+            type="text"
+            value={urlInput}
+            onChange={e => setUrlInput(e.target.value)}
+            placeholder={t("userUploadUrlInputPlaceholder")}
+        />
+
+        <input
+            type="text"
+            value={nameInput}
+            onChange={e => setNameInput(e.target.value)}
+            placeholder={t("userUploadNameInputPlaceholder")}
+        />
+
+        <input
+            type="text"
+            value={descInput}
+            onChange={e => setDescInput(e.target.value)}
+            placeholder={t("userUploadDescInputPlaceholder")}
+        />
+
+        <button onClick={userFileClick}>
+            {t("homeUploadSetlistBtn")}
+        </button>
+        <input
+            ref={inputFile}
+            hidden={true}
+            type="file"
+            accept={[".json"]}
+            maxfiles={1}
+            onChange={userFileChange}
+        ></input>
+
+        {errorMsg && (
+            <div>{errorMsg.message}</div>
+        )}
+
+    </div>
     
-    return(<>
-
-    <button onClick={userFileClick}>
-        {t("homeUploadSetlistBtn")}
-    </button>
-    <input
-        ref={inputFile}
-        hidden={true}
-        type="file"
-        accept={[".json"]}
-        maxfiles={1}
-        onChange={userFileChange}
-    ></input>
-
-    </>)
+    )
 
 }

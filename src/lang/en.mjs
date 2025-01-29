@@ -9,6 +9,30 @@ export const enLang = {
     homeViewDemoBtn: 'View Demo Setlist',
 
 
+    /* Setlist View */
+
+    /* Top bar */
+
+    setlistTopTitleDemo: "Demo setlist",
+    setlistTopTitleUpload: "Your uploaded setlist",
+
+    setlistSongCount_one: "Viewing {{count}} song",
+    setlistSongCount_other: "Viewing {{count}} songs",
+    setlistSortedBy: "Sorted by {{sortType}}",
+
+    setlistSortSongName : "Song name",
+    setlistSortArtist : "Artist",
+
+    setlistTextFilterPlaceholder: "Search...",
+
+    /* List */
+
+    setlistListCatCount_one: "{{count}} song",
+    setlistListCatCount_other: "{{count}} songs",
+
+    setlistListSearchCat: "Search results",
+
+
     /* Login */
 
     loginEmailLabel: "Your email address",
@@ -31,27 +55,10 @@ export const enLang = {
     forgotConfirmation: "Check your email for the password reset link",
 
 
-    /* Setlist View */
+    /* User page */
 
-    /* Top bar */
-
-    setlistTopTitleDemo: "Demo setlist",
-    setlistTopTitleUpload: "Your uploaded setlist",
-
-    setlistSongCount_one: "Viewing {{count}} song",
-    setlistSongCount_other: "Viewing {{count}} songs",
-    setlistSortedBy: "Sorted by {{sortType}}",
-
-    setlistSortSongName : "Song name",
-    setlistSortArtist : "Artist",
-
-    setlistTextFilterPlaceholder: "Search...",
-
-    /* List */
-
-    setlistListCatCount_one: "{{count}} song",
-    setlistListCatCount_other: "{{count}} songs",
-
-    setlistListSearchCat: "Search results"
+    userUploadUrlInputPlaceholder: "Setlist Url",
+    userUploadNameInputPlaceholder: "Setlist name",
+    userUploadDescInputPlaceholder: "Setlist description",
 
 }

@@ -31,8 +31,10 @@ function SetlistProvider({ children }) {
      * @param {Object} data - Raw json data 
      */
     async function loadUserUploadSetlist(data) {
-        setSetlistData(await getUserUploadSetlist(data));
+        const userSetlist = await getUserUploadSetlist(data)
+        setSetlistData(userSetlist);
         addToSetlistInfo("name", t("setlistTopTitleUpload"));
+        return userSetlist;
     }
 
     /**
