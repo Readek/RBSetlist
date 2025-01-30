@@ -4,6 +4,7 @@ import { getDemoSetlist, getUserUploadSetlist } from "../data/ParseSetlist.mjs";
 import { sortSetlist } from "../data/SortSetlist.mjs";
 import { useTranslation } from "react-i18next";
 import { supabase } from "./authContext";
+import { searchByText } from "../data/FilterSetlist.mjs";
 /** @import { SetlistData, SetlistInfo, SetlistActive } from "../data/TypeDefinitions.mjs" */
 
 const SetlistContext = createContext();
@@ -98,24 +99,15 @@ function SetlistProvider({ children }) {
         return tempData;
     }
 
-    // to reorder active setlist array
     useEffect(() => {
 
         if (setlistInfo.textFilter) {
-            const fText = setlistInfo.textFilter
-            const newArr = [...setlistData];
-
-            const newERArr = newArr.filter(song =>
-                song.name.toLocaleLowerCase().includes(fText.toLocaleLowerCase())
-                || song.artist.toLocaleLowerCase().includes(fText.toLocaleLowerCase())
-                || song.album.toLocaleLowerCase().includes(fText.toLocaleLowerCase())
-            )
-
             setSetlistActive([{
                 name: t("setlistListSearchCat"),
-                songs: newERArr
+                songs: searchByText(setlistInfo.textFilter, [...setlistData])
             }])
         } else {
+            // to reorder active setlist array
             setSetlistActive(sortSetlist([...setlistData], setlistInfo.sortType));
         }
 

@@ -32,7 +32,6 @@ function AuthProvider({ children }) {
   return(
     <AuthContext.Provider  value={{
       session: session, setSession: setSession,
-      supabase: supabase
     }}>
       {children}
     </AuthContext.Provider>

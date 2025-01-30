@@ -53,6 +53,15 @@ function sortByArtist(setlist) {
 
     }
 
+    // sort categories by category name
+    // this is actually how data is stored in og json, but just in case
+    sortAlphabetically(finalSet);
+
+    // sort songs inside categories
+    for (let i = 0; i < finalSet.length; i++) {
+        sortAlphabetically(finalSet[i].songs);
+    }
+
     return finalSet;
 
 }
@@ -112,15 +121,27 @@ function sortBySongName(setlist) {
 
     }
 
-    // finally, sort by category name
-    finalSet.sort((a, b) => {
+    // sort categories by category name
+    sortAlphabetically(finalSet);
+
+    // sort songs inside categories
+    for (let i = 0; i < finalSet.length; i++) {
+        sortAlphabetically(finalSet[i].songs);
+    }
+
+    return finalSet;
+
+}
+
+/**
+ * @param {SetlistActive[]} array 
+ */
+function sortAlphabetically(array) {
+    array.sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
         if (nameA < nameB) {return -1}
         if (nameA > nameB) {return 1}
         return 0;
     });
-
-    return finalSet;
-
 }
