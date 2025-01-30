@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/authContext";
+import { AuthContext, supabase } from "../contexts/authContext";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import UploadToDb from "../components/User/uploadToDb";
@@ -8,7 +8,7 @@ export default function User() {
 
     const { t } = useTranslation();
 
-    const { session, supabase } = useContext(AuthContext);
+    const { session } = useContext(AuthContext);
 
     const [ uploadList, setUploadList ] = useState([]);
 

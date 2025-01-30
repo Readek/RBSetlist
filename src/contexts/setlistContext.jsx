@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
 import { getDemoSetlist, getUserUploadSetlist } from "../data/ParseSetlist.mjs";
 import { sortSetlist } from "../data/SortSetlist.mjs";
 import { useTranslation } from "react-i18next";
-import { AuthContext } from "./authContext";
+import { supabase } from "./authContext";
 /** @import { SetlistData, SetlistInfo, SetlistActive } from "../data/TypeDefinitions.mjs" */
 
 const SetlistContext = createContext();
@@ -13,8 +13,6 @@ const setsUrl = "https://"+import.meta.env.VITE_SUPABASE_PROJECT_ID+".supabase.c
 function SetlistProvider({ children }) {
 
     const { t } = useTranslation();
-
-    const { supabase } = useContext(AuthContext);
 
     /** @type {ReturnType<typeof useState<SetlistData[]>>} */
     const [ setlistData, setSetlistData ] = useState([]);

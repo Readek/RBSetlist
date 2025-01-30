@@ -3,7 +3,7 @@ import { SetlistContext } from "../contexts/setlistContext"
 import { useTranslation } from "react-i18next";
 import Settings from "../components/settings";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../contexts/authContext";
+import { supabase } from "../contexts/authContext";
 
 export default function Root() {
 
@@ -11,7 +11,6 @@ export default function Root() {
     const { t } = useTranslation();
 
     const { loadUserUploadSetlist } = useContext(SetlistContext);
-    const { supabase } = useContext(AuthContext);
 
     const inputFile = useRef();
 

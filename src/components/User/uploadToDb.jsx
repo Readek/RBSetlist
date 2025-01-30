@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { AuthContext } from "../../contexts/authContext";
+import { AuthContext, supabase } from "../../contexts/authContext";
 import { SetlistContext } from "../../contexts/setlistContext";
 import { useTranslation } from "react-i18next";
 
@@ -9,7 +9,7 @@ export default function UploadToDb({getItems}) {
 
     const inputFile = useRef();
 
-    const { session, supabase } = useContext(AuthContext);
+    const { session } = useContext(AuthContext);
     const { loadUserUploadSetlist } = useContext(SetlistContext);
 
     const [ nameInput, setNameInput ] = useState("");

@@ -1,7 +1,7 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useContext } from 'react';
-import { AuthContext } from '../contexts/authContext';
+import { AuthContext, supabase } from '../contexts/authContext';
 import { Navigate } from 'react-router-dom';
 import "../assets/login.css"
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,7 @@ export default function Login() {
 
   const { t } = useTranslation();
 
-  const { session, supabase } = useContext(AuthContext);
+  const { session } = useContext(AuthContext);
 
   if (!session) {
     return (
