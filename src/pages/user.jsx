@@ -3,6 +3,7 @@ import { AuthContext, supabase } from "../contexts/authContext";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import UploadToDb from "../components/User/uploadToDb";
+import UserPageSetlist from "../components/User/userPageSetlist";
 
 export default function User() {
 
@@ -45,11 +46,11 @@ export default function User() {
         <h3>Your setlists</h3>
 
         {uploadList.map(setlist => (
-            <div key={setlist.name}>
-                <div>{setlist.name}</div>
-                <div>{setlist.description}</div>
-                <div>{setlist.url}</div>
-            </div>
+            <UserPageSetlist 
+                dbData={setlist}
+                getItems={getItems}
+                key={setlist.name}
+            />
         ))}
 
         <button onClick={logOut}>Sign Out</button>
