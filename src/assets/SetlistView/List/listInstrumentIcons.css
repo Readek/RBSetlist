@@ -1,0 +1,13 @@
+.setlistListInstruments {
+    display: flex;
+    gap: 10px;
+    height: 30px;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
+.setlistListInstrumentIconMiss {
+    filter: brightness(.3);
+}

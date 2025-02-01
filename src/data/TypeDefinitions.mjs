@@ -4,7 +4,7 @@
  *  artist: String,
  *  band_diff: Number,
  *  bass_diff: Number,
- *  drumms_diff: Number,
+ *  drums_diff: Number,
  *  duration: String,
  *  filepath: String,
  *  genre: String,

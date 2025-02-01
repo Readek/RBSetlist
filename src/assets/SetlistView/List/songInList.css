@@ -4,6 +4,8 @@
     padding: 6px 25px;
     background-color: var(--fadederColor);
     transition: background-color .2s;
+    justify-content: space-between;
+    gap: 5px;
 }
 .setlistListSong:hover {
     background-color: var(--fadedColor);
@@ -13,6 +15,11 @@
     }
 }
 
+.setlistListSongLeft {
+    display: flex;
+    align-items: center;
+}
+
 .setlistListTexts {
     transition: translate .15s;
     gap: 10px;
@@ -20,8 +27,8 @@
 
 .setlistListSongIcon {
     transition: translate .15s;
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     margin-right: 10px;
 }
 

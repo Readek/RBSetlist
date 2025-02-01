@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../../assets/SetlistView/List/songInList.css";
+import ListInstrumentIcons from "./listIntrumentIcons";
 /** @import { SetlistData } from "../../../data/TypeDefinitions.mjs" */
 
 /** @param {{songData: SetlistData, sortType: String, textFilter: String}} */
@@ -42,25 +43,31 @@ export default function SongInList({songData, sortType, textFilter}) {
 
     <div className="setlistListSong">
 
-        <img
-            className="setlistListSongIcon"
-            src={sourceImg}
-            onError={() => {
-                setSourceImg("SourceIcons/generic.png");
-            }}
-            alt={songData.source}
-            title={songData.source}
-        />
+        <div className="setlistListSongLeft">
 
-        <div className="setlistListTexts">
+            <img
+                className="setlistListSongIcon"
+                src={sourceImg}
+                onError={() => {
+                    setSourceImg("SourceIcons/generic.png");
+                }}
+                alt={songData.source}
+                title={songData.source}
+            />
 
-            <span className="setlistListSongMain">
-                {songData.name}
-            </span>
+            <div className="setlistListTexts">
 
-            {subtext}
+                <span className="setlistListSongMain">
+                    {songData.name}
+                </span>
+
+                {subtext}
+
+            </div>
 
         </div>
+
+        <ListInstrumentIcons songData={songData} />
     
     </div>
 
