@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import UploadToDb from "../components/User/uploadToDb";
 import UserPageSetlist from "../components/User/userPageSetlist";
 import LanguangeSelect from "../components/languageSelect";
+import "../assets/User/user.css";
 
 export default function User() {
 
@@ -13,6 +14,8 @@ export default function User() {
     const { session } = useContext(AuthContext);
 
     const [ uploadList, setUploadList ] = useState([]);
+
+    const [ loadingList, setLoadingList ] = useState(true);
 
     async function logOut() {
         await supabase.auth.signOut({ scope: 'local' })
@@ -38,27 +41,42 @@ export default function User() {
 
     {session && <>
 
-        <div id="homeSettings">
-            <LanguangeSelect />
+        <div id="userContent">
+
+            <div id="userLanguageSel">
+                <LanguangeSelect />
+            </div>
+
+            <h1>{t("userYourSetlists")}</h1>
+
+            <div id="userSetlists">
+
+                {uploadList.map(setlist => (
+                    <UserPageSetlist 
+                        dbData={setlist}
+                        getItems={getItems}
+                        key={setlist.name}
+                    />
+                ))}
+
+            </div>
+            
+            <h2>{t("userUploadSetlist")}</h2>
+
+            <UploadToDb getItems={getItems}></UploadToDb>
+            
+            <div id="userLogOut">
+
+                <div>{t("userLoggedAs", {userName: session.user.email})}</div>
+                <button onClick={logOut}>{t("userLogOut")}</button>
+
+            </div>
+
+            
+
         </div>
 
-        <div>hola, {session.user.email}</div>
-
-        <h3>Upload a setlist</h3>
-
-        <UploadToDb getItems={getItems}></UploadToDb>
-
-        <h3>Your setlists</h3>
-
-        {uploadList.map(setlist => (
-            <UserPageSetlist 
-                dbData={setlist}
-                getItems={getItems}
-                key={setlist.name}
-            />
-        ))}
-
-        <button onClick={logOut}>Sign Out</button>
+        
 
     </>}
 

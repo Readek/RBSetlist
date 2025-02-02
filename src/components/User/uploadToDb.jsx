@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext, supabase } from "../../contexts/authContext";
 import { SetlistContext } from "../../contexts/setlistContext";
 import { useTranslation } from "react-i18next";
+import "../../assets/User/uploadToDb.css";
 
 export default function UploadToDb({getItems}) {
 
@@ -69,28 +70,44 @@ export default function UploadToDb({getItems}) {
 
     return(
 
-    <div>
+    <div id="userUploadContent">
+        
+        <div className="userUploadInputDiv">
+            <div>{t("userUploadNameInputLabel")}</div>
+            <input
+                type="text"
+                value={nameInput}
+                onChange={e => setNameInput(e.target.value)}
+                placeholder={t("userUploadNameInputPlaceholder")}
+            />
+        </div>
+        
+        <div className="userUploadInputDiv">
+            <div>{t("userUploadDescInputLabel")}</div>
+            <input
+                type="text"
+                value={descInput}
+                onChange={e => setDescInput(e.target.value)}
+                placeholder={t("userUploadDescInputPlaceholder")}
+            />
+        </div>
 
-        <input
-            type="text"
-            value={urlInput}
-            onChange={e => setUrlInput(e.target.value)}
-            placeholder={t("userUploadUrlInputPlaceholder")}
-        />
-
-        <input
-            type="text"
-            value={nameInput}
-            onChange={e => setNameInput(e.target.value)}
-            placeholder={t("userUploadNameInputPlaceholder")}
-        />
-
-        <input
-            type="text"
-            value={descInput}
-            onChange={e => setDescInput(e.target.value)}
-            placeholder={t("userUploadDescInputPlaceholder")}
-        />
+        <div className="userUploadInputDiv">
+            <div>{t("userUploadUrlInputLabel")}</div>
+            <input
+                type="text"
+                value={urlInput}
+                onChange={e => setUrlInput(e.target.value)}
+                placeholder={t("userUploadUrlInputPlaceholder")}
+            />
+            {urlInput && (
+                <div id="userUploadUrlPreview">
+                    {`Your url will be: "https://readek.github.io/RBSetlist/#/${urlInput}"`}
+                </div>
+            )}
+            
+        </div>
+        
 
         <button onClick={userFileClick}>
             {t("homeUploadSetlistBtn")}

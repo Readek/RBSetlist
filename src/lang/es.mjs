@@ -8,6 +8,8 @@ export const esLang = {
 
     /* Home screen */
 
+    homeTopDesc : "Un lugar donde subir y mostrar tus canciones en Rock Band",
+
     homeUploadSetlistBtn: 'Subir Lista',
     homeViewDemoBtn: 'Ver Demo',
 
@@ -60,8 +62,25 @@ export const esLang = {
 
     /* User page */
 
-    userUploadUrlInputPlaceholder: "Nombre del elnace",
-    userUploadNameInputPlaceholder: "Nombre de la lista",
-    userUploadDescInputPlaceholder: "Descripción de la lista",
+    userYourSetlists: "Tus listas de canciones",
+
+    userSetlistName: "Título",
+    userSetlistDescription: "Descripción",
+    userSetlistUrl: "Enlace",
+    userSetlistDelete: "Borrar lista",
+
+    userUploadSetlist: "Sube una lista",
+
+    userUploadNameInputLabel: "Título de la lista",
+    userUploadDescInputLabel: "Descripción de la lista",
+    userUploadUrlInputLabel: "Nombre del elnace",
+
+    userUploadNameInputPlaceholder: `Ejemplo: "Mi lista de canciones"`,
+    userUploadDescInputPlaceholder: "Cualquier cosa vale",
+    userUploadUrlInputPlaceholder: "Enlace identificador",
+
+    userLoggedAs: "Has iniciado sesión como {{userName}}",
+
+    userLogOut: "Cerrar sesión",
 
 }

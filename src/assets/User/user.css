@@ -1,0 +1,35 @@
+#userContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    @media (max-width: 400px) {
+        padding: 15px;
+    }
+}
+
+#userLanguageSel {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+#userSetlists {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#userLogOut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 25px;
+
+    button {
+        padding: 5px 0px;
+        min-width: 100px;
+    }
+}

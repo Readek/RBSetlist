@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import { AuthContext, supabase } from "../../contexts/authContext";
+import "../../assets/User/userPageSetlist.css";
+import { useTranslation } from "react-i18next";
 
 export default function UserPageSetlist({dbData, getItems}) {
+
+    const { t } = useTranslation();
 
     const { session } = useContext(AuthContext);
 
@@ -24,11 +28,25 @@ export default function UserPageSetlist({dbData, getItems}) {
     
     return(
 
-        <div>
-            <div>{dbData.name}</div>
-            <div>{dbData.description}</div>
-            <div>{dbData.url}</div>
-            <button onClick={deleteSetlist}>Delet</button>
+        <div className="userSetlist">
+
+            <div className="userSetlistCombo">
+                <div className="userSetlistKey">{t("userSetlistName")}</div>
+                <div className="userSetlistValue">{dbData.name}</div>
+            </div>
+
+            <div className="userSetlistCombo">
+                <div className="userSetlistKey">{t("userSetlistDescription")}</div>
+                <div className="userSetlistValue">{dbData.description}</div>
+            </div>
+
+            <div className="userSetlistCombo">
+                <div className="userSetlistKey">{t("userSetlistUrl")}</div>
+                <div className="userSetlistValue">{dbData.url}</div>
+            </div>
+
+            <button onClick={deleteSetlist}>{t("userSetlistDelete")}</button>
+
         </div>
 
     )

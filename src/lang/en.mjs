@@ -9,6 +9,8 @@ export const enLang = {
 
     /* Home screen */
 
+    homeTopDesc : "A place to upload and display your Rock Band setlists",
+
     homeUploadSetlistBtn: 'Upload Setlist',
     homeViewDemoBtn: 'View Demo Setlist',
 
@@ -61,8 +63,25 @@ export const enLang = {
 
     /* User page */
 
-    userUploadUrlInputPlaceholder: "Setlist Url",
-    userUploadNameInputPlaceholder: "Setlist name",
-    userUploadDescInputPlaceholder: "Setlist description",
+    userYourSetlists: "Your Setlists",
+
+    userSetlistName: "Name",
+    userSetlistDescription: "Description",
+    userSetlistUrl: "Url",
+    userSetlistDelete: "Delete setlist",
+
+    userUploadSetlist: "Upload a setlist",
+
+    userUploadNameInputLabel: "Setlist name",
+    userUploadDescInputLabel: "Setlist description",
+    userUploadUrlInputLabel: "Setlist Url",
+
+    userUploadNameInputPlaceholder: `Example: "My Awesome Setlist"`,
+    userUploadDescInputPlaceholder: `Anything goes`,
+    userUploadUrlInputPlaceholder: "Url identifier",
+
+    userLoggedAs: "You're logged in as {{userName}}",
+
+    userLogOut: "Sign Out",
 
 }

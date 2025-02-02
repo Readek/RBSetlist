@@ -10,6 +10,10 @@
   font-family: "RobotoCondensed-SemiBold";
   src: url('./Fonts/RobotoCondensed-SemiBold.ttf');
 }
+@font-face {
+  font-family: "RobotoCondensed-Black";
+  src: url('./Fonts/RobotoCondensed-Black.ttf');
+}
 
 :root {
   font-family: "RobotoCondensed-Regular";

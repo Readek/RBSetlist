@@ -1,9 +1,7 @@
 import { useContext, useRef } from "react"
 import { SetlistContext } from "../contexts/setlistContext"
 import { useTranslation } from "react-i18next";
-import Settings from "../components/settings";
-import { Link, useNavigate } from "react-router-dom";
-import { supabase } from "../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 import "../assets/root.css"
 import LanguangeSelect from "../components/languageSelect";
 import LoginLinkBtn from "../components/loginLinkBtn";
@@ -52,6 +50,8 @@ export default function Root() {
             <div id="homeTopContent">
 
                 <div id="homeTopTitle">RB Setlist</div>
+
+                <div id="homeTopDesc">{t("homeTopDesc")}</div>
 
             </div>
 
