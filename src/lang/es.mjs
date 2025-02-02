@@ -1,9 +1,12 @@
 export const esLang = {
 
-    /* Home screen */
+    langSelecten: "🇺🇸 English (Inglés)",
+    langSelectes: "🇪🇸 Español ES",
 
-    langSelecten: "English (Inglés)",
-    langSelectes: "Español ES",
+    loginLinkBtnLogin: "Iniciar sesión",
+    loginLinkBtnLoged: "Mis listas",
+
+    /* Home screen */
 
     homeUploadSetlistBtn: 'Subir Lista',
     homeViewDemoBtn: 'Ver Demo',
@@ -57,8 +60,8 @@ export const esLang = {
 
     /* User page */
 
-    userUploadUrlInputPlaceholder: "Enlace",
-    userUploadNameInputPlaceholder: "Nombre",
-    userUploadDescInputPlaceholder: "Descripción",
+    userUploadUrlInputPlaceholder: "Nombre del elnace",
+    userUploadNameInputPlaceholder: "Nombre de la lista",
+    userUploadDescInputPlaceholder: "Descripción de la lista",
 
 }

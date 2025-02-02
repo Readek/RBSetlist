@@ -1,9 +1,13 @@
 export const enLang = {
 
-    /* Home screen */
+    langSelecten: "🇺🇸 English",
+    langSelectes: "🇪🇸 Español ES (Spanish)",
 
-    langSelecten: "English",
-    langSelectes: "Español ES (Spanish)",
+    loginLinkBtnLogin: "Log in",
+    loginLinkBtnLoged: "My setlists",
+    
+
+    /* Home screen */
 
     homeUploadSetlistBtn: 'Upload Setlist',
     homeViewDemoBtn: 'View Demo Setlist',

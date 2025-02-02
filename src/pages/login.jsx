@@ -5,6 +5,7 @@ import { AuthContext, supabase } from '../contexts/authContext';
 import { Navigate } from 'react-router-dom';
 import "../assets/login.css"
 import { useTranslation } from 'react-i18next';
+import LanguangeSelect from '../components/languageSelect';
 
 export default function Login() {
 
@@ -13,7 +14,12 @@ export default function Login() {
   const { session } = useContext(AuthContext);
 
   if (!session) {
-    return (
+    return (<>
+
+      <div id="homeSettings">
+        <LanguangeSelect />
+      </div>
+      
       <div id='loginContainer'>
         <Auth
           supabaseClient={supabase}
@@ -54,11 +60,11 @@ export default function Login() {
           }}
         />
       </div>
-    )
-  } else {
-    return (<>
-      <Navigate to={"/Config/User"} replace={true} />
     </>)
+  } else {
+    return (
+      <Navigate to={"/Config/User"} replace={true} />
+    )
   }
 
 }

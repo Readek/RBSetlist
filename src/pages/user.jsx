@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import UploadToDb from "../components/User/uploadToDb";
 import UserPageSetlist from "../components/User/userPageSetlist";
+import LanguangeSelect from "../components/languageSelect";
 
 export default function User() {
 
@@ -36,6 +37,10 @@ export default function User() {
     return(<>
 
     {session && <>
+
+        <div id="homeSettings">
+            <LanguangeSelect />
+        </div>
 
         <div>hola, {session.user.email}</div>
 

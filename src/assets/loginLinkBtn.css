@@ -1,0 +1,5 @@
+.loginLinkBtn {
+    border: 1px solid var(--fadedColor);
+    padding: 5px 10px;
+    height: 30px;
+}

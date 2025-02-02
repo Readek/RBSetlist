@@ -1,22 +1,23 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { supabase } from "../contexts/authContext";
+import "../assets/languageSelect.css"
 
 const languageList = [
     "en", "es"
 ];
 
-export default function Settings() {
+export default function LanguangeSelect() {
 
     const { i18n, t } = useTranslation();
+    
+        function changeLang(e) {
+            i18n.changeLanguage(e.target.value);
+        }
 
-    function changeLang(e) {
-        i18n.changeLanguage(e.target.value);
-    }
 
     return(<>
     
     <select
+        className="languageSelectSelect"
         defaultValue={i18n.language}
         onChange={changeLang}
     >
@@ -26,12 +27,6 @@ export default function Settings() {
             </option>
         ))}
     </select>
-
-    {supabase && (
-        <Link to={"/Config/Login"}>
-            <button>Login</button>
-        </Link>
-    )}
 
     </>)
 

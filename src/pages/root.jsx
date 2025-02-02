@@ -4,6 +4,9 @@ import { useTranslation } from "react-i18next";
 import Settings from "../components/settings";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../contexts/authContext";
+import "../assets/root.css"
+import LanguangeSelect from "../components/languageSelect";
+import LoginLinkBtn from "../components/loginLinkBtn";
 
 export default function Root() {
 
@@ -34,27 +37,46 @@ export default function Root() {
 
     return (<>
 
-    <Settings></Settings>
+    <div id="homeSettings">
 
-    {supabase && (
-        <Link to={"/Config/Login"}>
-            <button>Login</button>
-        </Link>
-    )}
+        <LanguangeSelect />
 
-    <h1>RB Setlist</h1>
+        <LoginLinkBtn />
 
-    <button onClick={userFileClick}>{t("homeUploadSetlistBtn")}</button>
-    <input
-        ref={inputFile}
-        hidden={true}
-        type="file"
-        accept={[".json"]}
-        maxfiles={1}
-        onChange={userFileChange}
-    ></input>
+    </div>
 
-    <button onClick={useDemoSetlist}>{t("homeViewDemoBtn")}</button>
+    <div id="homeCenterWrap">
+
+        <div id="homeContent">
+
+            <div id="homeTopContent">
+
+                <div id="homeTopTitle">RB Setlist</div>
+
+            </div>
+
+            <div id="homeMidBar"></div>
+
+            <div id="homeBotContent">
+
+                <button onClick={userFileClick}>{t("homeUploadSetlistBtn")}</button>
+                <input
+                    ref={inputFile}
+                    hidden={true}
+                    type="file"
+                    accept={[".json"]}
+                    maxfiles={1}
+                    onChange={userFileChange}
+                ></input>
+
+                <button onClick={useDemoSetlist}>{t("homeViewDemoBtn")}</button>
+
+            </div>
+
+        </div>
+
+    </div>
+    
 
     </>)
 
