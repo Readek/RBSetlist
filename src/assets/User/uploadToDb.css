@@ -5,7 +5,7 @@
     gap: 10px;
 
     button {
-        margin-top: 5px;
+        margin-top: 7px;
         padding: 3px 15px;
     }
 }
@@ -28,4 +28,18 @@
     width: 230px;
     font-size: 14px;
     color: var(--textSecondary);
+}
+
+#userUploadBtnContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--textSecondary);
+    margin-top: 5px;
+
+    button {
+        padding: 3px 10px;
+        margin-top: 0px;
+    }
+
 }

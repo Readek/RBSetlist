@@ -35,6 +35,7 @@ export default function User() {
         } else {
             setUploadList(data);
         }
+        setLoadingList(false);
     }
 
     return(<>
@@ -51,19 +52,30 @@ export default function User() {
 
             <div id="userSetlists">
 
-                {uploadList.map(setlist => (
-                    <UserPageSetlist 
-                        dbData={setlist}
-                        getItems={getItems}
-                        key={setlist.name}
-                    />
-                ))}
+                {loadingList ? (
+                    <div id="userSetlistsLoading">
+                        {t("userSetlistsLoading")}
+                    </div>
+                ) : (<>
+                    {uploadList.map(setlist => (
+                        <UserPageSetlist 
+                            dbData={setlist}
+                            getItems={getItems}
+                            setLoadingList={setLoadingList}
+                            key={setlist.name}
+                        />
+                    ))}
+                </>)}
+                
 
             </div>
             
             <h2>{t("userUploadSetlist")}</h2>
 
-            <UploadToDb getItems={getItems}></UploadToDb>
+            <UploadToDb
+                getItems={getItems}
+                setLoadingList={setLoadingList}
+            />
             
             <div id="userLogOut">
 
@@ -72,11 +84,7 @@ export default function User() {
 
             </div>
 
-            
-
         </div>
-
-        
 
     </>}
 

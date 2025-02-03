@@ -43,10 +43,18 @@
     color: black;
     -webkit-text-stroke: 1.5px var(--textPrimary);
     text-align: center;
+
+    @media (max-width: 400px) {
+        font-size: 52px;
+    }
 }
 #homeTopDesc {
     font-size: 18px;
     text-align: center;
+
+    @media (max-width: 400px) {
+        font-size: 16px;
+    }
 }
 
 
@@ -71,5 +79,11 @@
         padding: 9px 15px;
         font-size: 18px;
         filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.40));
+
+        @media (max-width: 400px) {
+            font-size: 16px;
+        }
     }
+
+   
 }

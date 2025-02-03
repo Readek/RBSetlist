@@ -4,7 +4,7 @@ import { SetlistContext } from "../../contexts/setlistContext";
 import { useTranslation } from "react-i18next";
 import "../../assets/User/uploadToDb.css";
 
-export default function UploadToDb({getItems}) {
+export default function UploadToDb({getItems, setLoadingList}) {
 
     const { t } = useTranslation();
 
@@ -16,6 +16,9 @@ export default function UploadToDb({getItems}) {
     const [ nameInput, setNameInput ] = useState("");
     const [ descInput, setDescInput ] = useState("");
     const [ urlInput, setUrlInput ] = useState("");
+    const [ setlistFile, setSetlistFile ] = useState();
+
+    const [ submitting, setSubmitting ] = useState(false);
 
     const [ errorMsg, setErrorMsg ] = useState();
 
@@ -33,10 +36,14 @@ export default function UploadToDb({getItems}) {
     }
 
     async function storeData(file) {
+        setSetlistFile(await loadUserUploadSetlist(file));
+    }
 
-        const setlist = await loadUserUploadSetlist(file);
+    async function submitSetlist() {
 
-        const dataJson = JSON.stringify(setlist, null, 2);
+        setSubmitting(true);
+
+        const dataJson = JSON.stringify(setlistFile, null, 2);
 
         const { data, error } = await supabase.storage
             .from('setlists')
@@ -45,8 +52,15 @@ export default function UploadToDb({getItems}) {
         if (error) {
             setErrorMsg(error);
         } else {
+            setLoadingList(true);
+            setNameInput("");
+            setDescInput("");
+            setUrlInput("");
+            setSetlistFile(null);
             addNewRow(data);
         }
+
+        setSubmitting(false);
 
     }
 
@@ -108,18 +122,39 @@ export default function UploadToDb({getItems}) {
             
         </div>
         
+        <div id="userUploadBtnContent">
 
-        <button onClick={userFileClick}>
-            {t("homeUploadSetlistBtn")}
+            <button onClick={userFileClick}>
+                {setlistFile ? (<>
+                    {t("userUploadBtnLoaded")}
+                </>) : (<>
+                    {t("userUploadBtn")}
+                </>)}
+            </button>
+            <input
+                ref={inputFile}
+                hidden={true}
+                type="file"
+                accept={[".json"]}
+                maxfiles={1}
+                onChange={userFileChange}
+            ></input>
+
+            {setlistFile && (
+                <div>
+                    {t("userUploadSongsLoaded", {songCount: setlistFile.length})}
+                </div>
+            )}
+            
+        </div>
+
+        <button onClick={submitSetlist}>
+            {submitting ? (<>
+                {t("userUploadSubmitting")}
+            </>) : (<>
+                {t("userUploadSubmit")}
+            </>)}
         </button>
-        <input
-            ref={inputFile}
-            hidden={true}
-            type="file"
-            accept={[".json"]}
-            maxfiles={1}
-            onChange={userFileChange}
-        ></input>
 
         {errorMsg && (
             <div>{errorMsg.message}</div>

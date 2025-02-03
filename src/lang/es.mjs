@@ -64,6 +64,8 @@ export const esLang = {
 
     userYourSetlists: "Tus listas de canciones",
 
+    userSetlistsLoading: "Cargando listas...",
+
     userSetlistName: "Título",
     userSetlistDescription: "Descripción",
     userSetlistUrl: "Enlace",
@@ -78,6 +80,13 @@ export const esLang = {
     userUploadNameInputPlaceholder: `Ejemplo: "Mi lista de canciones"`,
     userUploadDescInputPlaceholder: "Cualquier cosa vale",
     userUploadUrlInputPlaceholder: "Enlace identificador",
+
+    userUploadBtn: "Cargar lista",
+    userUploadBtnLoaded: "Lista cargada",
+    userUploadSongsLoaded: "{{songCount}} canciones cargadas",
+
+    userUploadSubmit: "Subir lista",
+    userUploadSubmitting: "Subiendo...",
 
     userLoggedAs: "Has iniciado sesión como {{userName}}",
 

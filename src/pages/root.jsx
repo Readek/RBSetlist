@@ -59,6 +59,8 @@ export default function Root() {
 
             <div id="homeBotContent">
 
+                <button onClick={useDemoSetlist}>{t("homeViewDemoBtn")}</button>
+
                 <button onClick={userFileClick}>{t("homeUploadSetlistBtn")}</button>
                 <input
                     ref={inputFile}
@@ -69,14 +71,11 @@ export default function Root() {
                     onChange={userFileChange}
                 ></input>
 
-                <button onClick={useDemoSetlist}>{t("homeViewDemoBtn")}</button>
-
             </div>
 
         </div>
 
     </div>
-    
 
     </>)
 

@@ -65,6 +65,8 @@ export const enLang = {
 
     userYourSetlists: "Your Setlists",
 
+    userSetlistsLoading: "Loading setlists...",
+
     userSetlistName: "Name",
     userSetlistDescription: "Description",
     userSetlistUrl: "Url",
@@ -79,6 +81,13 @@ export const enLang = {
     userUploadNameInputPlaceholder: `Example: "My Awesome Setlist"`,
     userUploadDescInputPlaceholder: `Anything goes`,
     userUploadUrlInputPlaceholder: "Url identifier",
+
+    userUploadBtn: "Load setlist file",
+    userUploadBtnLoaded: "Setlist file loaded",
+    userUploadSongsLoaded: "{{songCount}} songs found",
+
+    userUploadSubmit: "Submit",
+    userUploadSubmitting: "Submitting...",
 
     userLoggedAs: "You're logged in as {{userName}}",
 

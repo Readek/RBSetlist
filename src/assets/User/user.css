@@ -21,6 +21,12 @@
     gap: 10px;
 }
 
+#userSetlistsLoading {
+    color: var(--textSecondary);
+    font-size: 18px;
+    padding: 15px 0px;
+}
+
 #userLogOut {
     display: flex;
     flex-direction: column;

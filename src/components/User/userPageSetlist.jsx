@@ -3,13 +3,15 @@ import { AuthContext, supabase } from "../../contexts/authContext";
 import "../../assets/User/userPageSetlist.css";
 import { useTranslation } from "react-i18next";
 
-export default function UserPageSetlist({dbData, getItems}) {
+export default function UserPageSetlist({dbData, getItems, setLoadingList}) {
 
     const { t } = useTranslation();
 
     const { session } = useContext(AuthContext);
 
     async function deleteSetlist() {
+
+        setLoadingList(true);
         
         const response = await supabase
             .from('setlists')
