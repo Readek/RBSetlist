@@ -7,3 +7,6 @@
     width: 125px;
     height: 30px;
 }
+.languageSelectSelect:hover {
+    border-color: var(--textSecondary);
+}

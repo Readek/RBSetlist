@@ -45,8 +45,6 @@ export default function Root() {
 
     <div id="homeCenterWrap">
 
-        <div id="homeContent">
-
             <div id="homeTopContent">
 
                 <div id="homeTopTitle">RB Setlist</div>
@@ -72,8 +70,6 @@ export default function Root() {
                 ></input>
 
             </div>
-
-        </div>
 
     </div>
 
