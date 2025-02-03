@@ -1,7 +1,18 @@
+#loginLanguageSel {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding: 20px;
+
+    @media (max-width: 400px) {
+        padding: 15px;
+    }
+}
+
 #loginContainer {
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 65px;
 }
 
 .t-deGdmh {

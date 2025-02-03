@@ -6,6 +6,7 @@ import UploadToDb from "../components/User/uploadToDb";
 import UserPageSetlist from "../components/User/userPageSetlist";
 import LanguangeSelect from "../components/languageSelect";
 import "../assets/User/user.css";
+import GoHomeBtn from "../components/goHomeBtn";
 
 export default function User() {
 
@@ -48,41 +49,58 @@ export default function User() {
                 <LanguangeSelect />
             </div>
 
-            <h1>{t("userYourSetlists")}</h1>
+            <div id="userSetlistsContent">
 
-            <div id="userSetlists">
+                <h1>{t("userYourSetlists")}</h1>
 
-                {loadingList ? (
-                    <div id="userSetlistsLoading">
-                        {t("userSetlistsLoading")}
-                    </div>
-                ) : (<>
-                    {uploadList.map(setlist => (
-                        <UserPageSetlist 
-                            dbData={setlist}
-                            getItems={getItems}
-                            setLoadingList={setLoadingList}
-                            key={setlist.name}
-                        />
-                    ))}
-                </>)}
-                
+                <div id="userSetlists">
+
+                    {loadingList ? (
+                        <div id="userSetlistsLoading">
+                            {t("userSetlistsLoading")}
+                        </div>
+                    ) : (<>
+                        {uploadList.length ? (<>
+                            {uploadList.map(setlist => (
+                                <UserPageSetlist 
+                                    dbData={setlist}
+                                    getItems={getItems}
+                                    setLoadingList={setLoadingList}
+                                    key={setlist.name}
+                                />
+                            ))}
+                        </>) : (<>
+                            <div id="userSetlistsNone">
+                                {t("userSetlistsNone")}
+                            </div>
+                        </>)}
+                    </>)}
+
+                </div>
 
             </div>
-            
-            <h2>{t("userUploadSetlist")}</h2>
 
-            <UploadToDb
-                getItems={getItems}
-                setLoadingList={setLoadingList}
-            />
-            
-            <div id="userLogOut">
+            <div id="userUploadSetlistContent">
 
-                <div>{t("userLoggedAs", {userName: session.user.email})}</div>
+                <h1>{t("userUploadSetlist")}</h1>
+
+                <UploadToDb
+                    getItems={getItems}
+                    setLoadingList={setLoadingList}
+                />
+
+            </div>
+
+        </div>
+
+        <div id="userLogOut">
+
+            <div>{t("userLoggedAs", {userName: session.user.email})}</div>
+            <div id="userLogOutBtns">
                 <button onClick={logOut}>{t("userLogOut")}</button>
-
+                <GoHomeBtn/>
             </div>
+            
 
         </div>
 

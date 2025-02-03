@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 import "../assets/login.css"
 import { useTranslation } from 'react-i18next';
 import LanguangeSelect from '../components/languageSelect';
+import GoHomeBtn from '../components/goHomeBtn';
 
 export default function Login() {
 
@@ -16,7 +17,8 @@ export default function Login() {
   if (!session) {
     return (<>
 
-      <div id="homeSettings">
+      <div id="loginLanguageSel">
+        <GoHomeBtn />
         <LanguangeSelect />
       </div>
       

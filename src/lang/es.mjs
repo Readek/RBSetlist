@@ -66,6 +66,8 @@ export const esLang = {
 
     userSetlistsLoading: "Cargando listas...",
 
+    userSetlistsNone: "Aun no has subido ninguna lista.",
+
     userSetlistName: "Título",
     userSetlistDescription: "Descripción",
     userSetlistUrl: "Enlace",
@@ -97,5 +99,10 @@ export const esLang = {
     userLoggedAs: "Has iniciado sesión como {{userName}}",
 
     userLogOut: "Cerrar sesión",
+
+
+    /* Misc */
+
+    btnGoHome: "Ir al inicio",
 
 }

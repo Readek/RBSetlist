@@ -67,6 +67,8 @@ export const enLang = {
 
     userSetlistsLoading: "Loading setlists...",
 
+    userSetlistsNone: "You haven't uploaded any setlist yet.",
+
     userSetlistName: "Name",
     userSetlistDescription: "Description",
     userSetlistUrl: "Url",
@@ -98,5 +100,10 @@ export const enLang = {
     userLoggedAs: "You're logged in as {{userName}}",
 
     userLogOut: "Sign Out",
+
+
+    /* Misc */
+
+    btnGoHome: "Go Home",
 
 }
