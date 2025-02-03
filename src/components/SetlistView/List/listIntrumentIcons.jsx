@@ -44,7 +44,7 @@ export default function ListInstrumentIcons({songData}) {
 
         if (songData.vocal_parts > 1) {
             setVocals(songData.vocal_parts);
-        } else if (!songData.vocal_parts) {
+        } else if (!songData.vocal_diff) {
             setMissVocals(missClass);
         }
 
