@@ -86,6 +86,12 @@ export const enLang = {
     userUploadBtnLoaded: "Setlist file loaded",
     userUploadSongsLoaded: "{{songCount}} songs found",
 
+    userUploadErrorName: "Invalid setlist name",
+    userUploadErrorDesc: "Invalid setlist description",
+    userUploadErrorUrl: "Invalid setlist url",
+    userUploadErrorFile: "Setlist file is missing",
+    userUploadErrorDupe: "This setlist url already exists",
+
     userUploadSubmit: "Submit",
     userUploadSubmitting: "Submitting...",
 

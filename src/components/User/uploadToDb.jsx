@@ -1,8 +1,10 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext, supabase } from "../../contexts/authContext";
 import { SetlistContext } from "../../contexts/setlistContext";
 import { useTranslation } from "react-i18next";
 import "../../assets/User/uploadToDb.css";
+
+const validUrlReg = /^[A-Za-z0-9_-]{3,50}$/ 
 
 export default function UploadToDb({getItems, setLoadingList}) {
 
@@ -42,7 +44,14 @@ export default function UploadToDb({getItems, setLoadingList}) {
     async function submitSetlist() {
 
         setSubmitting(true);
-
+        const vibeCheck = await validateSubmit();
+        
+        if (vibeCheck) {
+            setErrorMsg(vibeCheck);
+            setSubmitting(false);
+            return;
+        }
+        
         const dataJson = JSON.stringify(setlistFile, null, 2);
 
         const { data, error } = await supabase.storage
@@ -52,6 +61,7 @@ export default function UploadToDb({getItems, setLoadingList}) {
         if (error) {
             setErrorMsg(error);
         } else {
+            setErrorMsg(null);
             setLoadingList(true);
             setNameInput("");
             setDescInput("");
@@ -76,11 +86,40 @@ export default function UploadToDb({getItems, setLoadingList}) {
             })
 
         if (error) {
-            setErrorMsg(error);
+            setErrorMsg(error.message);
         } else {
             getItems();
         }
     }
+
+    async function validateSubmit() {
+
+        if (!nameInput || nameInput.length > 50) {
+            return "userUploadErrorName";
+        } else if (!descInput || descInput.length > 100) {
+            return "userUploadErrorDesc";
+        } else if (!urlInput || urlInput.length > 50
+            || !urlInput.match(validUrlReg) || urlInput == "Demo"
+            || urlInput == "LocalUpload") {
+            return "userUploadErrorUrl";
+        } else if (!setlistFile) {
+            return "userUploadErrorFile";
+        }
+
+        // we need to check if someone is already using that same url
+        const response = await supabase
+            .from('setlists')
+            .select()
+            .eq('url', urlInput)
+
+        if (response.data.length) return "userUploadErrorDupe";
+        
+
+    }
+
+    useEffect( () => {
+        setErrorMsg(null);
+    }, [nameInput, descInput, urlInput, setlistFile])
 
     return(
 
@@ -148,17 +187,20 @@ export default function UploadToDb({getItems, setLoadingList}) {
             
         </div>
 
-        <button onClick={submitSetlist}>
+        {errorMsg && (
+            <div id="userUploadErrorMsg">{t(errorMsg)}</div>
+        )}
+
+        <button
+            onClick={submitSetlist}
+            disabled={submitting}
+        >
             {submitting ? (<>
                 {t("userUploadSubmitting")}
             </>) : (<>
                 {t("userUploadSubmit")}
             </>)}
         </button>
-
-        {errorMsg && (
-            <div>{errorMsg.message}</div>
-        )}
 
     </div>
     

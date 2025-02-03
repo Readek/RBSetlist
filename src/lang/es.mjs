@@ -85,6 +85,12 @@ export const esLang = {
     userUploadBtnLoaded: "Lista cargada",
     userUploadSongsLoaded: "{{songCount}} canciones cargadas",
 
+    userUploadErrorName: "Nombre de lista inválido",
+    userUploadErrorDesc: "Descripción de lista inválida",
+    userUploadErrorUrl: "Enlace de lista inválido",
+    userUploadErrorFile: "Falta subir el archivo de la lista",
+    userUploadErrorDupe: "Ese enlace ya está en uso",
+
     userUploadSubmit: "Subir lista",
     userUploadSubmitting: "Subiendo...",
 

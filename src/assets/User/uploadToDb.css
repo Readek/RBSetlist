@@ -8,6 +8,11 @@
         margin-top: 7px;
         padding: 3px 15px;
     }
+
+    button:disabled {
+        filter: brightness(.7);
+        pointer-events: none;
+    }
 }
 
 .userUploadInputDiv {
@@ -42,4 +47,8 @@
         margin-top: 0px;
     }
 
+}
+
+#userUploadErrorMsg {
+    color: rgb(233, 233, 130);
 }
