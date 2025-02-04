@@ -5,6 +5,8 @@
 #userBgFader {
     height: 100%;
     background-color: var(--bgColorAlphaDarker);
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 #userContent {
