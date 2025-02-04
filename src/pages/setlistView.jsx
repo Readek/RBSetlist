@@ -37,11 +37,17 @@ export default function SetlistView() {
     :(
         <div id="setlistContent">
 
-        <SetlistTopBar />
+            {setlistData.length ? (<>
 
-        {<Suspense fallback={<LoadingList/>}>
-            <SetlistList/>
-        </Suspense>}
+                <SetlistTopBar />
+                
+                {<Suspense fallback={<LoadingList/>}>
+                    <SetlistList/>
+                </Suspense>}
+
+            </>) : (
+                <LoadingList />
+            )}
 
         </div>
     )}

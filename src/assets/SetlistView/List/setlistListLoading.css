@@ -5,3 +5,9 @@
     height: 100%;
     background-color: var(--fadederColor);
 }
+
+#setlistListLoadingText {
+    color: var(--textSecondary);
+    font-family: "RobotoCondensed-Medium";
+    text-transform: uppercase;
+}

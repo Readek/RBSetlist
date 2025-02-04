@@ -17,6 +17,8 @@ export const enLang = {
 
     /* Setlist View */
 
+    setlistLoadingText: "Loading...",
+
     /* Top bar */
 
     setlistTopTitleDemo: "Demo setlist",

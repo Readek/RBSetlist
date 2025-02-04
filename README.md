@@ -26,7 +26,7 @@ You will then be able to run a developer enviroment with:
 npm run dev
 ```
 
-Note that you will be required to provide your own Supabase Prokect ID and API keys on a `.env` file:
+Note that you will be required to provide your own Supabase Project ID and API keys in a `.env` file:
 
 ```
 VITE_SUPABASE_PROJECT_ID = {{your_project_id}}
