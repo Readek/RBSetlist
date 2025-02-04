@@ -20,7 +20,7 @@
 
   color-scheme: light dark;
   color: var(--textPrimary);
-  background-color: #252429;
+  background-color: var(--bgColor);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,6 +32,9 @@
   --fadedColor: #444444;
   --fadederColor: #161616;
   --interactColor: #2b2a33;
+  --bgColor: #252429;
+  --bgColorAlpha: #252429AA;
+  --bgColorAlphaDarker: #121214dd;
 
 }
 
@@ -60,9 +63,9 @@ a {
 
 button {
   background-color: var(--interactColor);
-  border: 2px solid var(--fadedColor);
+  border: 1px solid var(--fadedColor);
   border-radius: 7px;
-  padding: 3px 8px;
+  padding: 4px 8px;
   transition: border-color .15s, filter .2s;
   color: var(--textPrimary);
 }

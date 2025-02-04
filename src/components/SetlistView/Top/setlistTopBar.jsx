@@ -24,6 +24,8 @@ export default function SetlistTopBar() {
 
     return(
 
+    <div id="setlistTopBarContent">
+    
     <div id="setlistTopBar">
 
         <div id="setlistTopTop">
@@ -64,6 +66,8 @@ export default function SetlistTopBar() {
             onChange={e => setFilterInput(e.target.value)}
             placeholder={t("setlistTextFilterPlaceholder")}
         />
+
+    </div>
 
     </div>
 

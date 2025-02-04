@@ -1,9 +1,19 @@
+#userBg {
+    height: 100%;
+    background: center / cover no-repeat url("/HomeBG.jpg");
+}
+#userBgFader {
+    height: 100%;
+    background-color: var(--bgColorAlphaDarker);
+}
+
 #userContent {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
     gap: 30px;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 
     @media (max-width: 400px) {
         padding: 15px;
@@ -51,14 +61,15 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    margin: 25px 0px;    
+    margin: 25px 0px;   
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5)); 
 }
 #userLogOutBtns {
     display: flex;
     gap: 7px;
 
     button {
-        padding: 5px 0px;
+        padding: 6px 0px;
         min-width: 100px;
     }
 }

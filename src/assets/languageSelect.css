@@ -4,7 +4,7 @@
     border: 1px solid var(--fadedColor);
     border-radius: 7px;
     padding: 5px 8px;
-    width: 125px;
+    width: 115px;
     height: 30px;
 }
 .languageSelectSelect:hover {

@@ -1,7 +1,12 @@
+#setlistTopBarContent {
+    background: top / cover no-repeat url("/HomeBG.jpg");
+}
+
 #setlistTopBar {
     padding: 20px;
     border-bottom: white solid 1px;
     width: 100%;
+    background: linear-gradient(#000000AA, #252429DD);
 }
 
 #setlistTopTop {

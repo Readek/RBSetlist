@@ -5,6 +5,14 @@
     border: 1px solid var(--fadedColor);
     padding: 10px 15px;
     border-radius: 10px;
+    background-color: var(--interactColor);
+
+    button:hover {
+        border-color: lightcoral;
+    }
+}
+.userSetlist:hover {
+    border-color: var(--textSecondary);
 }
 
 .userSetlistCombo {

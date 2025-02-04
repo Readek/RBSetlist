@@ -17,51 +17,60 @@ export default function Login() {
   if (!session) {
     return (<>
 
-      <div id="loginLanguageSel">
-        <GoHomeBtn />
-        <LanguangeSelect />
-      </div>
-      
-      <div id='loginContainer'>
-        <Auth
-          supabaseClient={supabase}
-          appearance={{
-            theme: ThemeSupa,
-          }}
-          providers={[]}
-          theme='dark'
-          localization={{
-            variables: {
-              sign_up: {
-                email_label: t("loginEmailLabel"),
-                email_input_placeholder: t("loginEmailPlaceholder"),
-                password_label: t("loginPasswordLabel"),
-                password_input_placeholder: t("loginPasswordPlaceholder"),
-                button_label: t("signUpButtonLabel"),
-                loading_button_label: t("signUpButtonLoading"),
-                link_text: t("signUpLink"),
-                confirmation_text: t("signUpConfirmation"),
+      <div id='loginContent'>
+
+      <div id='loginContentDiv'>
+
+        <div id="loginLanguageSel">
+          <GoHomeBtn />
+          <LanguangeSelect />
+        </div>
+        
+        <div id='loginContainer'>
+          <Auth
+            supabaseClient={supabase}
+            appearance={{
+              theme: ThemeSupa,
+            }}
+            providers={[]}
+            theme='dark'
+            localization={{
+              variables: {
+                sign_up: {
+                  email_label: t("loginEmailLabel"),
+                  email_input_placeholder: t("loginEmailPlaceholder"),
+                  password_label: t("loginPasswordLabel"),
+                  password_input_placeholder: t("loginPasswordPlaceholder"),
+                  button_label: t("signUpButtonLabel"),
+                  loading_button_label: t("signUpButtonLoading"),
+                  link_text: t("signUpLink"),
+                  confirmation_text: t("signUpConfirmation"),
+                },
+                sign_in: {
+                  email_label: t("loginEmailLabel"),
+                  email_input_placeholder: t("loginEmailPlaceholder"),
+                  password_label: t("loginPasswordLabel"),
+                  password_input_placeholder: t("loginPasswordPlaceholder"),
+                  button_label: t("signInButtonLabel"),
+                  loading_button_label: t("signInButtonLoading"),
+                  link_text: t("signInLink"),
+                },
+                forgotten_password: {
+                  email_label: t("loginEmailLabel"),
+                  email_input_placeholder: t("loginEmailPlaceholder"),
+                  button_label: t("forgotButtonLabel"),
+                  loading_button_label: t("signInButtonLoading"),
+                  link_text: t("forgotLink"),
+                }
               },
-              sign_in: {
-                email_label: t("loginEmailLabel"),
-                email_input_placeholder: t("loginEmailPlaceholder"),
-                password_label: t("loginPasswordLabel"),
-                password_input_placeholder: t("loginPasswordPlaceholder"),
-                button_label: t("signInButtonLabel"),
-                loading_button_label: t("signInButtonLoading"),
-                link_text: t("signInLink"),
-              },
-              forgotten_password: {
-                email_label: t("loginEmailLabel"),
-                email_input_placeholder: t("loginEmailPlaceholder"),
-                button_label: t("forgotButtonLabel"),
-                loading_button_label: t("signInButtonLoading"),
-                link_text: t("forgotLink"),
-              }
-            },
-          }}
-        />
+            }}
+          />
+        </div>
+
       </div>
+
+      </div>
+
     </>)
   } else {
     return (

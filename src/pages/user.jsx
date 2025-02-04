@@ -43,66 +43,74 @@ export default function User() {
 
     {session && <>
 
-        <div id="userContent">
+    <div id="userBg">
 
-            <div id="userLanguageSel">
-                <LanguangeSelect />
-            </div>
+    <div id="userBgFader">
 
-            <div id="userSetlistsContent">
+    <div id="userContent">
 
-                <h1>{t("userYourSetlists")}</h1>
+        <div id="userLanguageSel">
+            <LanguangeSelect />
+        </div>
 
-                <div id="userSetlists">
+        <div id="userSetlistsContent">
 
-                    {loadingList ? (
-                        <div id="userSetlistsLoading">
-                            {t("userSetlistsLoading")}
+            <h1>{t("userYourSetlists")}</h1>
+
+            <div id="userSetlists">
+
+                {loadingList ? (
+                    <div id="userSetlistsLoading">
+                        {t("userSetlistsLoading")}
+                    </div>
+                ) : (<>
+                    {uploadList.length ? (<>
+                        {uploadList.map(setlist => (
+                            <UserPageSetlist 
+                                dbData={setlist}
+                                getItems={getItems}
+                                setLoadingList={setLoadingList}
+                                key={setlist.name}
+                            />
+                        ))}
+                    </>) : (<>
+                        <div id="userSetlistsNone">
+                            {t("userSetlistsNone")}
                         </div>
-                    ) : (<>
-                        {uploadList.length ? (<>
-                            {uploadList.map(setlist => (
-                                <UserPageSetlist 
-                                    dbData={setlist}
-                                    getItems={getItems}
-                                    setLoadingList={setLoadingList}
-                                    key={setlist.name}
-                                />
-                            ))}
-                        </>) : (<>
-                            <div id="userSetlistsNone">
-                                {t("userSetlistsNone")}
-                            </div>
-                        </>)}
                     </>)}
-
-                </div>
-
-            </div>
-
-            <div id="userUploadSetlistContent">
-
-                <h1>{t("userUploadSetlist")}</h1>
-
-                <UploadToDb
-                    getItems={getItems}
-                    setLoadingList={setLoadingList}
-                />
+                </>)}
 
             </div>
 
         </div>
 
-        <div id="userLogOut">
+        <div id="userUploadSetlistContent">
 
-            <div>{t("userLoggedAs", {userName: session.user.email})}</div>
-            <div id="userLogOutBtns">
-                <button onClick={logOut}>{t("userLogOut")}</button>
-                <GoHomeBtn/>
-            </div>
-            
+            <h1>{t("userUploadSetlist")}</h1>
+
+            <UploadToDb
+                getItems={getItems}
+                setLoadingList={setLoadingList}
+            />
 
         </div>
+
+    </div>
+
+    <div id="userLogOut">
+
+        <div>{t("userLoggedAs", {userName: session.user.email})}</div>
+        <div id="userLogOutBtns">
+            <button onClick={logOut}>{t("userLogOut")}</button>
+            <GoHomeBtn/>
+        </div>
+        
+
+    </div>
+
+    </div>
+
+    </div>
 
     </>}
 
