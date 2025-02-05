@@ -57,9 +57,19 @@ export default function Root() {
 
             <div id="homeBotContent">
 
-                <button onClick={useDemoSetlist}>{t("homeViewDemoBtn")}</button>
+                <button
+                    onClick={useDemoSetlist}
+                    id="homeBotDemoBtn"
+                >
+                    {t("homeViewDemoBtn")}
+                </button>
 
-                <button onClick={userFileClick}>{t("homeUploadSetlistBtn")}</button>
+                <button
+                    id="homeBotUploadBtn"
+                    onClick={userFileClick}
+                >
+                    {t("homeUploadSetlistBtn")}
+                </button>
                 <input
                     ref={inputFile}
                     hidden={true}

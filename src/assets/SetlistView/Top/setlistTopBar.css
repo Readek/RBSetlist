@@ -18,6 +18,7 @@
 #setlistTopTitle {
     font-family: "RobotoCondensed-SemiBold";
     font-size: 32px;
+    animation: fadeInFromRight .3s .1s both;
 }
 
 #setlistTopRight {
