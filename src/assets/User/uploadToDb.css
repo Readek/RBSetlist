@@ -23,9 +23,14 @@
 
     input {
         border: 1px solid var(--fadedColor);
+        background-color: var(--interactColor);
         border-radius: 7px;
         padding: 4px 7px;
         width: 250px;
+        color: var(--textPrimary);
+    }
+    input::placeholder {
+        color: var(--textSecondary);
     }
 }
 
