@@ -29,6 +29,7 @@ export const esLang = {
 
     setlistSortSongName : "Nombre",
     setlistSortArtist : "Artista",
+    setlistSortYear : "Año",
 
     setlistTextFilterPlaceholder: "Buscar...",
 

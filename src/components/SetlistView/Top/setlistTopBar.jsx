@@ -57,6 +57,7 @@ export default function SetlistTopBar() {
         >
             <option value="SongName">{t("setlistSortSongName")}</option>
             <option value="Artist">{t("setlistSortArtist")}</option>
+            <option value="Year">{t("setlistSortYear")}</option>
         </select>
 
         <input

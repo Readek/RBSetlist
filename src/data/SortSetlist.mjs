@@ -13,6 +13,8 @@ export function sortSetlist(setlist, sortType) {
         return sortByArtist(setlist);
     } else if (sortType == "SongName") {
         return sortBySongName(setlist);
+    } else if (sortType == "Year") {
+        return sortByYear(setlist);
     }
 
 }
@@ -130,6 +132,52 @@ function sortBySongName(setlist) {
     }
 
     return finalSet;
+
+}
+
+/**
+ * @param {SetlistData[]} setlist - Base setlist data
+ * @returns {SetlistActive[]}
+ */
+function sortByYear(setlist) {
+
+    /** @type {SetlistActive[]} */
+    const finalSet = [];
+
+    for (let i = 0; i < setlist.length; i++) {
+
+        let catFound = false;
+
+        for (let j = 0; j < finalSet.length; j++) {
+
+            if (finalSet[j] && finalSet[j].name == setlist[i].year_released) {
+
+                // if category exist, add the song to it
+                finalSet[j].songs.push(setlist[i]);
+                catFound = true;
+                break;
+
+            }
+
+        }
+
+        if (catFound) continue;
+
+        // if category doesnt exist, create it
+        finalSet.push({
+            name: setlist[i].year_released,
+            songs: [setlist[i]]
+        })
+
+    }    
+
+    // sort songs inside categories
+    for (let i = 0; i < finalSet.length; i++) {
+        sortAlphabetically(finalSet[i].songs);
+    }
+
+    // sort categories by number
+    return finalSet.sort((a, b) => b.name - a.name);
 
 }
 
