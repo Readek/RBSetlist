@@ -41,6 +41,14 @@ export const enLang = {
 
     setlistListSearchCat: "Search results",
 
+    /* Info */
+
+    setlistInfoDataAlbum: "Album",
+    setlistInfoDataGenre: "Genre",
+    setlistInfoDataYear: "Year released",
+    setlistInfoDataSource: "Source",
+    setlistInfoDataShortname: "Shortname",
+    setlistInfoDataId: "Song ID",
 
     /* Login */
 

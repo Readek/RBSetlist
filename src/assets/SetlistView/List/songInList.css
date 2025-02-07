@@ -6,9 +6,17 @@
     transition: background-color .2s;
     justify-content: space-between;
     gap: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    color: inherit;
+    container-type: inline-size;
 }
 .setlistListSong:hover {
     background-color: var(--fadedColor);
+    filter: none;
 
     .setlistListTexts, .setlistListSongIcon {
         translate: 7px 0px;
@@ -22,7 +30,10 @@
 
 .setlistListTexts {
     transition: translate .15s;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
 }
 
 .setlistListSongIcon {

@@ -40,6 +40,15 @@ export const esLang = {
 
     setlistListSearchCat: "Resultados de la búsqueda",
 
+    /* Info */
+
+    setlistInfoDataAlbum: "Album",
+    setlistInfoDataGenre: "Género",
+    setlistInfoDataYear: "Año de lanzamiento",
+    setlistInfoDataSource: "Fuente",
+    setlistInfoDataShortname: "Shortname",
+    setlistInfoDataId: "Song ID",
+
 
     /* Login */
 

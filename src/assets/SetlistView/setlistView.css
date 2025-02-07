@@ -4,3 +4,9 @@
     max-height: 100%;
     height: 100%;
 }
+
+#setlistSongs {
+    display: flex;
+    height: 100%;
+    overflow-y: auto;
+}

@@ -4,7 +4,7 @@ import ListInstrumentIcons from "./listIntrumentIcons";
 /** @import { SetlistData } from "../../../data/TypeDefinitions.mjs" */
 
 /** @param {{songData: SetlistData, sortType: String, textFilter: String}} */
-export default function SongInList({songData, sortType, textFilter}) {
+export default function SongInList({songData, sortType, textFilter, setActiveSong}) {
 
     const [sourceImg, setSourceImg] = useState(
         // we remove underscores because there can be differences
@@ -39,9 +39,13 @@ export default function SongInList({songData, sortType, textFilter}) {
 
     }
 
+    function songClick() {
+        setActiveSong(songData);
+    }
+
     return(
 
-    <div className="setlistListSong">
+    <button className="setlistListSong" onClick={songClick}>
 
         <div className="setlistListSongLeft">
 
@@ -57,9 +61,9 @@ export default function SongInList({songData, sortType, textFilter}) {
 
             <div className="setlistListTexts">
 
-                <span className="setlistListSongMain">
+                <div className="setlistListSongMain">
                     {songData.name}
-                </span>
+                </div>
 
                 {subtext}
 
@@ -69,7 +73,7 @@ export default function SongInList({songData, sortType, textFilter}) {
 
         <ListInstrumentIcons songData={songData} />
     
-    </div>
+    </button>
 
     )
 

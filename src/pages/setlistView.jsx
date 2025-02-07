@@ -4,6 +4,8 @@ import { Navigate, useLoaderData } from "react-router-dom";
 import SetlistTopBar from "../components/SetlistView/Top/setlistTopBar";
 import LoadingList from "../components/SetlistView/List/loadingList";
 import "../assets/SetlistView/setlistView.css"
+import SongInfo from "../components/SetlistView/Info/songInfo";
+import { ActiveSongProvider } from "../contexts/activeSongContext";
 /** @import { SetlistData } from "../data/TypeDefinitions.mjs" */
 
 export async function loader({params}) {
@@ -40,10 +42,21 @@ export default function SetlistView() {
             {setlistData.length ? (<>
 
                 <SetlistTopBar />
+
+                <div id="setlistSongs">
+
+                    <ActiveSongProvider>
+
+                        {<Suspense fallback={<LoadingList/>}>
+                            <SetlistList/>
+                        </Suspense>}
+
+                        <SongInfo />
+
+                    </ActiveSongProvider>
+
+                </div>
                 
-                {<Suspense fallback={<LoadingList/>}>
-                    <SetlistList/>
-                </Suspense>}
 
             </>) : (
                 <LoadingList />
@@ -51,8 +64,6 @@ export default function SetlistView() {
 
         </div>
     )}
-
-    
 
     </>)
 

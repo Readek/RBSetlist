@@ -1,0 +1,49 @@
+#songInfoContent {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    max-width: 100%;
+    flex-shrink: 0;
+    font-size: 19px;
+    border-left: solid 1px var(--textSecondary);
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
+}
+
+#songInfoNameArtist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 2px solid var(--fadedColor);
+    text-align: center;
+}
+#songInfoSongName {
+    font-size: 22px;
+    font-family: "RobotoCondensed-SemiBold";
+}
+#songInfoArtist {
+    font-size: 20px;
+}
+
+#songInfoBasicList {
+    .songInfoBasicData:not(:first-child) {
+        border-top: 1px solid var(--fadedColor);
+    }
+}
+
+.songInfoBasicData {
+    display: flex;
+    gap: 5px;
+    padding: 6px 15px;
+
+    img {
+        width: 26px;
+        height: 26px;
+    }
+}
+.songInfoBasicSecon {
+    color: var(--textSecondary);
+}
