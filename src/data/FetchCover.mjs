@@ -1,4 +1,4 @@
-const url = `http://ws.audioscrobbler.com/2.0/`
+const url = `https://ws.audioscrobbler.com/2.0/`
  + `?method=track.getinfo`
  + `&api_key=${import.meta.env.VITE_LASTFM_API_KEY}`
  + `&autocorrect=1`

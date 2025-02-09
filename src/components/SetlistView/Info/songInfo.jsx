@@ -40,13 +40,16 @@ export default function SongInfo() {
 
         <div id="songInfoBasicList">
 
-            <div className="songInfoBasicData">
-                <div className="songInfoBasicLabel">{t("setlistInfoDataAlbum")}:</div>
-                <div className="songInfoBasicValue">{activeSong.album}</div>
-                {activeSong.track_number && (
-                    <div className="songInfoBasicSecon">#{activeSong.track_number}</div>
-                )}
-            </div>
+            {activeSong.album && (
+                <div className="songInfoBasicData">
+                    <div className="songInfoBasicLabel">{t("setlistInfoDataAlbum")}:</div>
+                    <div className="songInfoBasicValue">{activeSong.album}</div>
+                    {activeSong.track_number && (
+                        <div className="songInfoBasicSecon">#{activeSong.track_number}</div>
+                    )}
+                </div>
+            )}
+           
 
             <SongInfoBasic label={"Genre"} value={activeSong.genre} />
 
