@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import "../../../assets/SetlistView/Info/songInfo.css";
 import { ActiveSongContext } from "../../../contexts/activeSongContext";
 import { useTranslation } from "react-i18next";
+import SongCover from "./songCover";
+import SongInfoBasic from "./songInfoBasic";
 /** @import { SetlistData } from "../../../data/TypeDefinitions.mjs*/
 
 export default function SongInfo() {
@@ -29,28 +31,26 @@ export default function SongInfo() {
 
     {activeSong && (<>
 
+        <SongCover/>
+
         <div id="songInfoNameArtist">
             <div id="songInfoSongName">{activeSong.name}</div>
             <div id="songInfoArtist">{activeSong.artist}</div>
         </div>
-        
+
         <div id="songInfoBasicList">
 
             <div className="songInfoBasicData">
                 <div className="songInfoBasicLabel">{t("setlistInfoDataAlbum")}:</div>
                 <div className="songInfoBasicValue">{activeSong.album}</div>
-                <div className="songInfoBasicSecon">#{activeSong.track_number}</div>
+                {activeSong.track_number && (
+                    <div className="songInfoBasicSecon">#{activeSong.track_number}</div>
+                )}
             </div>
 
-            <div className="songInfoBasicData">
-                <div className="songInfoBasicLabel">{t("setlistInfoDataGenre")}:</div>
-                <div className="songInfoBasicValue">{activeSong.genre}</div>
-            </div>
+            <SongInfoBasic label={"Genre"} value={activeSong.genre} />
 
-            <div className="songInfoBasicData">
-                <div className="songInfoBasicLabel">{t("setlistInfoDataYear")}:</div>
-                <div className="songInfoBasicValue">{activeSong.year_released}</div>
-            </div>
+            <SongInfoBasic label={"Year"} value={activeSong.year_released} />
 
             <div className="songInfoBasicData">
                 <div className="songInfoBasicLabel">{t("setlistInfoDataSource")}:</div>
@@ -65,22 +65,16 @@ export default function SongInfo() {
                 <div className="songInfoBasicSecon">{activeSong.source}</div>
             </div>
 
-            <div className="songInfoBasicData">
-                <div className="songInfoBasicLabel">{t("setlistInfoDataShortname")}:</div>
-                <div className="songInfoBasicValue">{activeSong.shortname}</div>
-            </div>
+            <SongInfoBasic label={"Shortname"} value={activeSong.shortname} />
 
-            <div className="songInfoBasicData">
-                <div className="songInfoBasicLabel">{t("setlistInfoDataId")}:</div>
-                <div className="songInfoBasicValue">{activeSong.songid}</div>
-            </div>
+            <SongInfoBasic label={"Id"} value={activeSong.songid} />
 
         </div>
-        
+
     </>)}
 
     </div>
 
     )
-    
+
 }

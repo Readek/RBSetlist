@@ -13,6 +13,7 @@
     width: 100%;
     color: inherit;
     container-type: inline-size;
+    cursor: pointer;
 }
 .setlistListSong:hover {
     background-color: var(--fadedColor);
