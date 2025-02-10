@@ -1,0 +1,29 @@
+.songLeadEntry {
+    display: flex;
+    gap: 5px;
+    padding: 6px 15px;
+    justify-content: space-between;
+}
+
+.songLeadLeft {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.songLeadRank {
+    color: var(--textSecondary);
+}
+.songLeadName {
+    font-family: "RobotoCondensed-Medium";
+}
+
+.songLeadRight {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.songLeadRightBot {
+    display: flex;
+    gap: 10px;
+    color: var(--textSecondary);
+}

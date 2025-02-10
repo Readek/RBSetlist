@@ -4,6 +4,7 @@ import { ActiveSongContext } from "../../../contexts/activeSongContext";
 import { useTranslation } from "react-i18next";
 import SongCover from "./songCover";
 import SongInfoBasic from "./songInfoBasic";
+import SongLeaderborards from "./songLeaderboards";
 /** @import { SetlistData } from "../../../data/TypeDefinitions.mjs*/
 
 export default function SongInfo() {
@@ -73,6 +74,8 @@ export default function SongInfo() {
             <SongInfoBasic label={"Id"} value={activeSong.songid} />
 
         </div>
+
+        <SongLeaderborards />
 
     </>)}
 

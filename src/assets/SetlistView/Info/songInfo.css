@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     padding: 15px 10px;
-    border-bottom: 2px solid var(--fadedColor);
+    border-bottom: 1px solid var(--fadedColor);
     border-top: 2px solid var(--fadedColor);
     text-align: center;
 }
