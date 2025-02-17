@@ -50,6 +50,15 @@ export const enLang = {
     setlistInfoDataShortname: "Shortname",
     setlistInfoDataId: "Song ID",
 
+    setlistScoreLoading: "Fetching scores...",
+
+    setlistScoreTitle: "{{type}} Leaderboards",
+
+    setlistScoreDiff1: "Easy",
+    setlistScoreDiff2: "Medium",
+    setlistScoreDiff3: "Hard",
+    setlistScoreDiff4: "Expert",
+
     /* Login */
 
     loginEmailLabel: "Your email address",

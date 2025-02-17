@@ -13,6 +13,13 @@
     padding: 10px 0px;
 }
 
+.songLeaderboardsNoScores {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: var(--textSecondary);
+}
+
 #songLeaderboardsList {
     display: flex;
     flex-direction: column;

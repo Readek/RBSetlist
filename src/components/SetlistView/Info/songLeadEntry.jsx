@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import "../../../assets/SetlistView/Info/songLeadEntry.css";
 
 export default function SongLeadEntry({leadData}) {
+
+    const { t } = useTranslation();
 
     return(
 
@@ -12,10 +15,10 @@ export default function SongLeadEntry({leadData}) {
         </div>
 
         <div className="songLeadRight">
-            <div>{leadData.score}</div>
+            <div className="songLeadScore">{leadData.score.toLocaleString()}</div>
             <div className="songLeadRightBot">
-                <div>{leadData.diff_id}</div>
-                <div>{leadData.notes_pct}</div>
+                <div>{t("setlistScoreDiff"+leadData.diff_id)}</div>
+                <div>{leadData.notes_pct}%</div>
             </div>
         </div>
 

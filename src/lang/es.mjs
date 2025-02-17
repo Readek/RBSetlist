@@ -49,6 +49,15 @@ export const esLang = {
     setlistInfoDataShortname: "Shortname",
     setlistInfoDataId: "Song ID",
 
+    setlistScoreTitle: "Clasificaciones de {{type}}",
+
+    setlistScoreLoading: "Cargando clasificaciones...",
+
+    setlistScoreDiff1: "Fácil",
+    setlistScoreDiff2: "Medio",
+    setlistScoreDiff3: "Difícil",
+    setlistScoreDiff4: "Experto",
+
 
     /* Login */
 
