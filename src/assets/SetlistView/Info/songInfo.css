@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px 10px;
+    padding: 10px 10px 15px 10px;
     border-bottom: 1px solid var(--fadedColor);
     border-top: 2px solid var(--fadedColor);
     text-align: center;

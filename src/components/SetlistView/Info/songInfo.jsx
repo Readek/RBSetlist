@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import SongCover from "./songCover";
 import SongInfoBasic from "./songInfoBasic";
 import SongLeaderborards from "./songLeaderboards";
+import SongDiff from "./songDiff";
 /** @import { SetlistData } from "../../../data/TypeDefinitions.mjs*/
 
 export default function SongInfo() {
@@ -37,6 +38,7 @@ export default function SongInfo() {
         <div id="songInfoNameArtist">
             <div id="songInfoSongName">{activeSong.name}</div>
             <div id="songInfoArtist">{activeSong.artist}</div>
+            <SongDiff songData={activeSong}/>
         </div>
 
         <div id="songInfoBasicList">
@@ -50,7 +52,6 @@ export default function SongInfo() {
                     )}
                 </div>
             )}
-           
 
             <SongInfoBasic label={"Genre"} value={activeSong.genre} />
 
