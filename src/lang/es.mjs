@@ -52,6 +52,7 @@ export const esLang = {
     setlistScoreTitle: "Clasificaciones de {{type}}",
 
     setlistScoreLoading: "Cargando clasificaciones...",
+    setlistScoreNone: "¿No hay ninguna clasificación?",
 
     setlistScoreDiff1: "Fácil",
     setlistScoreDiff2: "Medio",
@@ -126,4 +127,15 @@ export const esLang = {
 
     btnGoHome: "Ir al inicio",
 
+    instBand: "Banda",
+    instGuitar: "Guitarra",
+    instGuitarPro: "Guitarra Pro",
+    instBass: "Bajo",
+    instBassPro: "Bajo Pro",
+    instDrums: "Batería",
+    instDrumsPro: "Batería Pro",
+    instKeys: "Teclado",
+    instKeysPro: "Teclado Pro",
+    instVocals: "Vocales",
+    instHarm: "Harmonías",
 }

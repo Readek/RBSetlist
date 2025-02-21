@@ -51,6 +51,7 @@ export const enLang = {
     setlistInfoDataId: "Song ID",
 
     setlistScoreLoading: "Fetching scores...",
+    setlistScoreNone: "There are no scores?",
 
     setlistScoreTitle: "{{type}} Leaderboards",
 
@@ -125,5 +126,17 @@ export const enLang = {
     /* Misc */
 
     btnGoHome: "Go Home",
+
+    instBand: "Band",
+    instGuitar: "Guitar",
+    instGuitarPro: "Pro Guitar",
+    instBass: "Bass",
+    instBassPro: "Pro Bass",
+    instDrums: "Drums",
+    instDrumsPro: "Pro Drums",
+    instKeys: "Keys",
+    instKeysPro: "Pro Keys",
+    instVocals: "Vocals",
+    instHarm: "Harmonies",
 
 }
